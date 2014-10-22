@@ -15,7 +15,7 @@
     }
 
     $next.slideDown();
-  }
+  };
 
 
 
@@ -58,8 +58,8 @@
      * Checks if the current user is allowed to delete the paragraph.
      */
     canDelete: function() {
-      return this.author == Meteor.userId() &&
-             this.voteCount == 0 && ! this.elected;
+      return this.voteCount === 0 && ! this.elected &&
+             this.author == Meteor.userId();
     }
 
   });
