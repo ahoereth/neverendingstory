@@ -1,0 +1,12 @@
+<template name="paragraph_new">
+  {{#if isLoggedin}}
+    <p class="paragraph_new">
+      <form>
+        <textarea name="content" class="paragraph" placeholder="And so it continues..."></textarea><br>
+        <button type="submit">Post</button>
+      </form>
+    </p>
+  {{else}}
+    <p class="italic">If you want to continue this story you need to log in!</p>
+  {{/if}}
+</template>

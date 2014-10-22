@@ -1,0 +1,17 @@
+<template name="paragraph">
+  <div id="{{_id}}" class="paragraph {{#if isHidden}}hidden{{/if}}">
+    <p>{{content}}
+      {{#if canDelete}}
+        - <span class="remove clickable">x</span>
+      {{/if}}
+    </p>
+    {{#unless elected}}
+      <div class="actions">
+          <span class="vote clickable">{{voteCount}} +1</span> |
+          <span class="voteX clickable">force +1</span>
+          <span class="elect clickable">force elect</span>
+          {{#if hasSibling}}| <span class="next clickable">&rarr;</span>{{/if}}
+      </div>
+    {{/unless}}
+  </div>
+</template>

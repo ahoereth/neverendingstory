@@ -1,0 +1,14 @@
+<template name="story_new">
+  <div class="story">
+    {{#if isLoggedin}}
+      <form>
+        <input name="title" class="title" type="text" placeholder="This is the Neverending Story..."><br>
+        <textarea name="preface" class="preface" placeholder="The story Bastian reads is set in the magical land of Fantastica, ruled by the benevolent and mysterious Childlike Empress. A great delegation has come to the Empress..."></textarea><br>
+        <button type="submit">Start Story</button>
+      </form>
+    {{else}}
+      <h2 class="fadedout">Your Story</h2>
+      <p class="preface fadedout">Your own story can be right here! All you need to do is to login.</p>
+    {{/if}}
+  </div>
+</template>

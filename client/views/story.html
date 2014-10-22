@@ -1,0 +1,15 @@
+<template name="story">
+  <div class="story">
+    {{> story_head}}
+
+    {{#each paragraphs}}
+      {{> paragraph}}
+    {{/each}}
+
+    <div class="paragraph_vote">
+      {{#each nextParagraph}}{{> paragraph}}{{/each}}
+    </div>
+
+    {{> paragraph_new}}
+  </div>
+</template>
