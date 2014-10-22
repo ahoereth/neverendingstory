@@ -33,6 +33,9 @@
      * @return {Boolean}
      */
     insert: function(userId, doc) {
+      if ( isDebug() )
+        return true;
+
       return false;
     },
 
@@ -48,6 +51,9 @@
      * @return {Boolean}
      */
     update: function(userId, doc, fields, modifiers) {
+      if ( isDebug() )
+        return true;
+
       return false;
     },
 
@@ -60,6 +66,9 @@
      * @return {Boolean}
      */
     remove: function(userId, doc) {
+      if ( isDebug() )
+        return true;
+        
       return false;
     }
   });

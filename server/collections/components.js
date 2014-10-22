@@ -1,4 +1,5 @@
 (function() {
+
   // Components collection server side handling. Publishing and security rules.
 
   /****************************************************************************/
@@ -47,6 +48,9 @@
      * @return {Boolean}
      */
     insert: function(userId, doc) {
+      if ( isDebug() )
+        return true;
+
       return false;
     },
 
@@ -62,7 +66,7 @@
      * @return {Boolean}
      */
     update: function(userId, doc, fields, modifiers) {
-      if ( debugging() )
+      if ( isDebug() )
         return true;
 
       return false;
@@ -77,6 +81,9 @@
      * @return {Boolean}
      */
     remove: function(userId, doc) {
+      if ( isDebug() )
+        return true;
+
       return false;
     }
 

@@ -1,5 +1,5 @@
 (function() {
-  // Serverside helper function definitions. 
+  // Serverside helper function definitions.
 
   /**
    * Checks if the app currently is in debug mode. To run the app in debug mode
@@ -11,7 +11,7 @@
    *
    * @return {Boolean}
    */
-  debugging = function() {
+  isDebug = function() {
     return process.env.NODE_OPTIONS == '--debug';
   };
 
