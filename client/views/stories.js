@@ -1,18 +1,15 @@
-(function() {
-  // Stories template controls.
+// Stories controller.
 
-  /****************************************************************************/
-  /* Stories HELPERS */
-  /****************************************************************************/
-  Template.stories.helpers({
+/****************************************************************************/
+/* Stories HELPERS */
+/****************************************************************************/
+Template.stories.helpers({
 
-    /**
-     * Expose the stories to the view.
-     */
-    stories: function() {
-      return Stories.find();
-    }
+  /**
+   * Expose the stories to the view.
+   */
+  stories: function() {
+    return Stories.find();
+  }
 
-  });
-
-})();
+});
