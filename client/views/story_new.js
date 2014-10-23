@@ -16,7 +16,7 @@ Template.story_new.events({
       return;
 
     // Get form data.
-    var form = tmpl.find('form');
+    var form = tmpl.$('form');
     var fields = parseForm(form);
 
     // Stories require a non empty title!
@@ -39,8 +39,8 @@ Template.story_new.events({
       }
     });
 
-    // Reset form.
-    form.reset();
+    // Reset form using a native JS function.
+    form[0].reset();
   }
 
 });
@@ -53,5 +53,5 @@ Template.story_new.events({
 Template.story_new.rendered = function() {
   // The textarea should be automatically resized in height in order to
   // accomodate short and long prefaces alike.
-  $(this.firstNode).find('textarea').autosize();
+  this.$('textarea').autosize();
 };

@@ -16,11 +16,12 @@ handleNaturally = function(e) {
 /**
  * Parses all form data of a given form in an object for further use.
  *
+ * TODO: Maybe move form[0].reset() here with a {Boolean} 'reset' parameter?
+ *
  * @param {DOM Element} form HTML form element
  */
 parseForm = function(form) {
-  var fieldArray= $(form).serializeArray();
-  var fields = {};
+  var fieldArray = form.serializeArray(), fields = {};
 
   _.each(fieldArray, function(field) {
     fields[field.name] = field.value;

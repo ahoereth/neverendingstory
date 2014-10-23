@@ -7,12 +7,17 @@
  *
  * @param {Component} t
  */
-var showNext = function(t) {
-  var $next = $('#'+t._id).slideUp().next();
+var showNext = function(tmpl) {
+  // Get and hide current paragraph.
+  var $current = tmpl.$(tmpl.firstNode).slideUp();
+
+  // Get next paragraph.
+  var $next = $current.next();
   if ( $next.length === 0 ) {
-    $next = $('#'+t._id).parent('div').children().first();
+    $next = $current.parent('div').children().first();
   }
 
+  // Show next paragraph.
   $next.slideDown();
 };
 
@@ -79,20 +84,20 @@ Template.paragraph.events({
    * Show next sibling paragraph. Mainly relevant for the last paragraph of
    * a story.
    */
-  'click .next': function() {
+  'click .next': function(e, tmpl) {
     //Meteor.subscribe('components', this.story, this.priority);
-    showNext(this);
+    showNext(tmpl);
   },
 
 
   /**
    * Only visible as long as a component does not have any votes.
    */
-  'click .remove': function() {
+  'click .remove': function(e, tmpl) {
     if ( this.author != Meteor.userId() )
       return;
 
-    showNext(this);
+    showNext(tmpl);
     Meteor.call('components/remove', this._id);
   },
 

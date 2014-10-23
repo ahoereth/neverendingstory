@@ -16,7 +16,7 @@ Template.paragraph_new.events({
       return;
 
     // Get the form data.
-    var form = tmpl.find('form');
+    var form = tmpl.$('form');
     var fields = parseForm(form);
 
     // Paragraphs require some content!
@@ -28,8 +28,8 @@ Template.paragraph_new.events({
       content: fields.content
     });
 
-    // Reset form.
-    form.reset();
+    // Reset form using a native JS function.
+    form[0].reset();
   }
 
 });
@@ -40,5 +40,5 @@ Template.paragraph_new.events({
 /* New Paragraph RENDERED */
 /****************************************************************************/
 Template.paragraph_new.rendered = function() {
-  $('textarea').autosize();
+  this.$('textarea').autosize();
 };
