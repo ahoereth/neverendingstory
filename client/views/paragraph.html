@@ -1,7 +1,7 @@
 <template name="paragraph">
   <div id="{{_id}}" class="paragraph {{#if isHidden}}hidden{{/if}}">
     <p>{{content}}</p>
-    {{#unless elected}}
+    {{#unless any elected isNotLoggedin}}
       <div class="actions">
         {{#if canDelete}}<span class="remove clickable">delete</span> |{{/if}}
         <span class="vote clickable">{{voteCount}} +1</span>

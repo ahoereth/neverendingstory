@@ -46,14 +46,6 @@ Template.paragraph.helpers({
 
 
   /**
-   * Checks if the current user is the paragraph's author.
-   */
-  isAuthor: function() {
-    return this.author == Meteor.userId();
-  },
-
-
-  /**
    * Checks if the current user is allowed to delete the paragraph.
    */
   canDelete: function() {
