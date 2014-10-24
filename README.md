@@ -3,6 +3,8 @@
 * [Wiki: The Stories](https://github.com/ahoereth/neverendingstory/wiki/The-Stories)
 
 # Running the app
+
+## Unix/Linux
 Install Meteor. Clone the app repo. Change into repo folder. Run the app.
 
     ~$ curl https://install.meteor.com/ | sh
@@ -11,6 +13,10 @@ Install Meteor. Clone the app repo. Change into repo folder. Run the app.
     ~/neverendingstory$ meteor
 
 Don't run the app in your Dropbox folder or similar. The local Mongo database can get huge.
+
+## Windows
+Windows is [not yet](https://trello.com/c/ZMvnfMfI/11-official-windows-support) supported officially..
+Best way to use Windows for development seems to be Vagrant following [this](https://gist.github.com/gabrielhpugliese/5855677) turoial.
 
 ## Running the app during development
 During development run the app using the `--debug` option. This, at the moment, enables force votes and elects of paragraphs. More to follow.
