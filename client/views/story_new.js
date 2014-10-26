@@ -33,7 +33,7 @@ Template.story_new.events({
       redirect: true
     }, function(err, _id) {
       var current = Router.current();
-      var desired = Router.routes['stories.show'].path({_id: _id});
+      var desired = Router.routes['story'].path({_id: _id});
       if ( current.url != desired ) {
         Router.go(desired);
       }
