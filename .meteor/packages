@@ -8,6 +8,7 @@ accounts-ui
 accounts-password
 less
 underscore
-iron:router@1.0.0-pre3
 copleykj:jquery-autosize
 audit-argument-checks
+iron:router@1.0.0-rc.0
+
