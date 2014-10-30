@@ -22,7 +22,26 @@ Meteor.startup(function () {
           '"Why not come and chat with me," said the Grasshopper, "instead of toiling and moiling in that way?"',
           '"I am helping to lay up food for the winter," said the Ant, "and recommend you to do the same."',
           '"Why bother about winter?" said the Grasshopper; we have got plenty of food at present." But the Ant went on its way and continued its toil. When the winter came the Grasshopper had no food and found itself dying of hunger, while it saw the ants distributing every day corn and grain from the stores they had collected in the summer. Then the Grasshopper knew:',
-          'It is best to prepare for the days of necessity.'
+          'And the moral of this story: **It is best to prepare for the days of necessity.**'
+        ]
+      },
+      {
+        title: 'The Lion in Love',
+        preface: 'A Lion once fell in love with a beautiful maiden and proposed marriage to her parents.',
+        paragraphs: [
+          'The old people did not know what to say. They did not like to give their daughter to the Lion, yet they did not wish to enrage the King of Beasts. At last the father said:',
+          '"We feel highly honoured by your Majesty\'s proposal, but you see our daughter is a tender young thing, and we fear that in the vehemence of your affection you might possibly do her some injury. Might I venture to suggest that your Majesty should have your claws removed, and your teeth extracted, then we would gladly consider your proposal again."',
+          'The Lion was so much in love that he had his claws trimmed and his big teeth taken out. But when he came again to the parents of the young girl they simply laughed in his face, and bade him do his worst.',
+          'And the moral of this story: **Love can tame the wildest**'
+        ]
+      },
+      {
+        title: 'Markdown Test',
+        preface: '',
+        paragraphs: [
+          '__bold__ and _italic_',
+          '##Currently this supports headers..',
+          '..And pretty miuch everything else like lists or tables. What do we want to support in the product?'
         ]
       }
     ];
