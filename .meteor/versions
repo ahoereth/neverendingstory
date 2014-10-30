@@ -41,6 +41,7 @@ less@1.0.11
 livedata@1.0.11
 localstorage@1.0.1
 logging@1.0.5
+markdown@1.0.2
 meteor-platform@1.2.0
 meteor@1.1.3
 minifiers@1.1.2
@@ -50,6 +51,7 @@ mongo@1.0.8
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
+pfafman:font-awesome-4@4.2.0_2
 random@1.0.1
 reactive-dict@1.0.4
 reactive-var@1.0.3

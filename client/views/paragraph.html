@@ -1,6 +1,6 @@
 <template name="paragraph">
-  <div id="{{_id}}" class="paragraph {{#if isHidden}}hidden{{/if}}">
-    <p>{{content}}</p>
+  <div class="paragraph {{#if isHidden}}hidden{{/if}}">
+    <p>{{#markdown}}{{content}}{{/markdown}}</p>
     {{#unless elected}}
       <div class="actions">
         {{#if canDelete}}<span class="remove clickable">delete</span> |{{/if}}
