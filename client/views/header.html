@@ -1,13 +1,44 @@
 <template name="header">
   <div class="header">
-    <div class="content-wrapper">
-      <div class="logo">
-        <a href="/">Neverending Story</a>
-      </div>
-      <div class="login">
-        {{> loginButtons align="right"}}
-      </div>
+    <div class="menu">
+      <ul>
+        <li class="{{activePage 'home'}}">
+          <a href="{{pathFor 'home'}}">
+            <i class="fa fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="{{pathFor 'stories'}}">
+            <i class="fa fa-book"></i>
+            Stories
+          </a>
+        </li>
+        <li>
+          <span>
+            <i class="fa fa-users"></i>
+            Community
+          </span>
+        </li>
+        <li>
+          <a href="{{pathFor 'login'}}">
+            <i class="fa fa-child"></i>
+            You
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="menubar content-wrapper">
+      <!-- Currently the bottom line of the menu above is displayed in place
+      of this menubar. The menubar could instead be used to display the site
+      logo & current screen. In that case: Change initial height of the menu
+      to 0 and fill the menu bar with one-line content. -->
       <div class="clear"></div>
     </div>
+  </div>
+
+  <div class="menu-trigger">
+    <i class="fa"></i>
   </div>
 </template>

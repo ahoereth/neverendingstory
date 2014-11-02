@@ -1,6 +1,6 @@
 <template name="story_new">
   <div class="story">
-    {{#if isLoggedin}}
+    {{#if currentUser}}
       <form>
         <input name="title" class="title" type="text" placeholder="This is the Neverending Story..."><br>
         <textarea name="preface" class="preface" placeholder="The story Bastian reads is set in the magical land of Fantastica, ruled by the benevolent and mysterious Childlike Empress. A great delegation has come to the Empress..."></textarea><br>

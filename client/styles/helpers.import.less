@@ -29,3 +29,22 @@
      -moz-border-radius: @radius;
           border-radius: @radius;
 }
+
+.animation(@animation) {
+/*animation-name: spin;
+  animation-duration: .2s;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in;*/
+
+  -webkit-animation: @animation;
+     -moz-animation: @animation;
+      -ms-animation: @animation;
+          animation: @animation;
+}
+
+.transform(@arguments) {
+  -webkit-transform: @arguments;
+     -moz-transform: @arguments;
+       -o-transform: @arguments;
+          transform: @arguments;
+}

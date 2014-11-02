@@ -5,7 +5,7 @@
       <div class="actions">
         {{#if canDelete}}<span class="remove clickable">delete</span> |{{/if}}
         {{voteCount}}
-        {{#if isLoggedin}}<span class="vote clickable">+1</span>{{/if}}
+        {{#if currentUser}}<span class="vote clickable">+1</span>{{/if}}
         {{#if hasSibling}}| <span class="next clickable">&rarr;</span>{{/if}}
       </div>
     {{/unless}}

@@ -1,0 +1,122 @@
+@import '../dep.import.less';
+
+@menu-height-initial: 2em;
+@menu-height-expanded: 8em;
+@menu-trigger-yOffset: .75em;
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 800;
+  .drop-shadow(0, 2px, 4px, 0.5);
+
+  background-color: @primary;
+}
+
+.menu {
+  position: relative;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: @menu-height-initial;
+  line-height: 2em;
+  .transition(height @header-animation-duration ease-out);
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    position: absolute;
+    bottom: 0;
+    width: 25%;
+    text-align: center;
+
+    &:nth-child(1) { left: 0; }
+    &:nth-child(2) { left: 25%; }
+    &:nth-child(3) { left: 50%; }
+    &:nth-child(4) { left: 75%; }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    i {
+      display: block;
+      font-size: 4em;
+    }
+  }
+
+
+}
+
+.menubar {
+  height: 0em;
+  line-height: 2em;
+
+  .logo {
+    float: left;
+  }
+
+  .login {
+    float: right;
+  }
+}
+
+.menu-trigger {
+  position: fixed;
+  top: @menu-trigger-yOffset;
+  right: 2em;
+  cursor: pointer;
+  z-index: 801;
+
+  background-color: @primary;
+  .rounded(1em);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  .drop-shadow(0, 2px, 4px, 0.5);
+
+  .transition(top @header-animation-duration ease-out);
+
+  .fa {
+    // Transition 'transform' does not work on mobile, therefore use 'all'.
+    .transition(all @header-animation-duration ease-out);
+
+    &:before {
+      content: "\f077"; // chevron up
+      //content: "\f078"; // chevron down
+    }
+  }
+}
+
+.app.top {
+  .menu-trigger {
+    top: @menu-height-initial + @menu-trigger-yOffset;
+  }
+}
+
+.app.menu-active {
+  .menu {
+    height: @menu-height-expanded;
+  }
+
+  .menu-trigger {
+    top: @menu-height-expanded + @menu-trigger-yOffset;
+    line-height: 2.2em;
+  }
+
+  .menu-trigger .fa {
+    .transform(rotate(-180deg));
+  }
+}

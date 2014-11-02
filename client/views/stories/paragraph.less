@@ -1,0 +1,28 @@
+// Paragraph styles.
+
+@import '../../dep.import.less';
+
+.paragraph {
+  width: 100%;
+  padding: 1em 0 0;
+
+  p {
+    text-indent: 1em;
+    margin: 0;
+  }
+
+  .actions {
+    .noselect();
+    border-top: 1px solid #ccc;
+    text-align: right;
+    color: #ccc;
+  }
+
+  .actions:hover {
+    color: #000;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+}
