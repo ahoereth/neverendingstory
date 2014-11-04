@@ -43,5 +43,5 @@ Handlebars.registerHelper('activePage', function(/* args... */) {
   // includes Spacebars.kw but that's OK because the route name ain't that.
   var routeNames = arguments;
 
-  return _.include(routeNames, Router.current().route.name) && 'active';
+  return _.include(routeNames, Router.current().route.getName()) && 'active';
 });

@@ -9,7 +9,7 @@ Template.layout.helpers({
    * Main container classes.
    */
   classes: function() {
-    var classes = ['app', 'top'];
+    var classes = ['app', 'top', 'menu-active'];
 
     var currentRoute = Router.current();
     if (currentRoute) {

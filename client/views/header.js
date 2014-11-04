@@ -1,7 +1,7 @@
 // Menu controller.
 
 // Is the menu active currently?
-var menuActive      = false;
+var menuActive      = true;
 
 // y-direction scroll offset.
 var yOffset         = 0;
@@ -43,7 +43,7 @@ var toggleMenu = function(interactive) {
 
 
 /****************************************************************************/
-/* Header RENDERED */
+/* Header EVENTS */
 /****************************************************************************/
 Template.header.events({
   'click .menu-trigger': function(e, tmpl) {
@@ -77,7 +77,7 @@ Template.header.rendered = function() {
       $('.app').removeClass('top');
     }
 
-    if (menuActive && ! scrolling && yOffset > 50) {
+    if (menuActive && ! scrolling && yOffset > 15) {
       toggleMenu();
     }
   });

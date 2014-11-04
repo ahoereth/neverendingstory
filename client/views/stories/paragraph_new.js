@@ -8,7 +8,7 @@ Template.paragraph_new.events({
   /**
    * New paragraph form submission.
    */
-  'submit form': function(e, tmpl) {
+  'submit .new_paragraph': function(e, tmpl) {
     handleNaturally(e);
 
     // Only loggedin users can create new paragraphs.
@@ -18,7 +18,7 @@ Template.paragraph_new.events({
     // Get the form data.
     var form = tmpl.$('form');
     var fields = parseForm(form);
-
+    
     // Paragraphs require some content!
     if ( ! fields.content.length )
       return;

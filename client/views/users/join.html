@@ -1,0 +1,41 @@
+<template name="join">
+  <div class="view">
+    {{#unless currentUser}}
+    <h1 class="blocktitle">Join the community</h1>
+
+    <div class="row">
+      <div class="box box-1">
+        <form class="join">
+          <div class="form-row tickables">
+            <label>Login <input type="radio" name="do" value="login" checked /></label>
+            <label>Signup <input type="radio" name="do" value="signup" /></label>
+          </div>
+
+          <div class="form-row">
+            <label>Username</label>
+            <input type="text" name="username" required />
+          </div>
+
+          <div class="form-row">
+            <label>Password</label>
+            <input type="password" name="password" required />
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+      </div>
+
+    </div>
+    {{/unless}}
+
+
+    {{#if currentUser}}
+    <h1 class="blocktitle">Hey {{currentUser.username}}!</h1>
+    <p class="lead">This is your personal page, you can change some settings, export your data and stuff.</p>
+
+    <div class="box box-1">
+      <button class="logout">Logout</button>
+    </div>
+    {{/if}}
+  </div>
+</template>

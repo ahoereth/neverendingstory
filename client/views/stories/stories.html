@@ -1,7 +1,11 @@
 <template name="stories">
   <div class="view">
+    <h1 class="blocktitle">Stories overview</h1>
+    <p>Filter/sort by: Genre | Tags | Length | Contributors</p>
     {{#each stories}}
-      {{> story_excerpt}}
+      <div class="box box-1">
+        {{> story_excerpt}}
+      </div>
     {{/each}}
 
     {{> story_new}}

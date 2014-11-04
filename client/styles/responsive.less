@@ -1,6 +1,35 @@
+@import 'helpers.import.less';
+
+
 .content-wrapper {
   margin: 0 auto;
   clear: both;
+}
+
+.box {
+  margin: .5em 0 2em;
+  .drop-shadow(0, 2px, 4px, 0.5);
+  padding: .5em 5%;
+}
+
+.row {
+  width: 100%;
+
+  .box-1 {
+    width: 90%;
+    clear: both;
+  }
+
+  .box-2-1 {
+    width: 37.5%;
+    margin-right: 5%;
+    margin-left: 0;
+    float: left;
+  }
+
+  .box-2-1:nth-child(2) {
+    margin-right: 0;
+  }
 }
 
 // width: 360px

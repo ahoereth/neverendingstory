@@ -25,6 +25,13 @@
   line-height: 2em;
   .transition(height @header-animation-duration ease-out);
 
+  h1, span.pagetitle {
+    position: absolute;
+    bottom: 3em;
+    text-align: center;
+    width: 100%;
+  }
+
   ul {
     list-style: none;
     padding: 0;
@@ -53,6 +60,12 @@
     i {
       display: block;
       font-size: 4em;
+      .transition(all .2s ease-in-out);
+    }
+
+    i:hover {
+      .transform(scale(1.2));
+      text-shadow: 1px 1px 2px @primary3;
     }
   }
 

@@ -1,0 +1,13 @@
+<template name="landing">
+  <div class="view">
+    <h1 class="blocktitle">The Neverending Story</h1>
+    <p class="lead">Democratic crowdsourced social writing.</p>
+    
+    <h2 class="blocktitle">Featured Stories:</h2>
+    <div class="row">
+    {{#each featuredStories}}
+        <div class="box box-2-1">{{> story_excerpt}}</div>
+    {{/each}}
+    </div>
+  </div>
+</template>
