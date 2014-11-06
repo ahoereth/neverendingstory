@@ -1,8 +1,5 @@
 // Menu controller.
 
-// Is the menu active currently?
-var menuActive      = true;
-
 // y-direction scroll offset.
 var yOffset         = 0;
 
@@ -23,6 +20,8 @@ var onTop           = true;
  * @params {boolean} interactive
  */
 var toggleMenu = function(interactive) {
+  var menuActive = Session.get('menu-active');
+
   if (interactive) {
     if (! menuActive) {
       menuActivatedAt = yOffset;
@@ -36,7 +35,7 @@ var toggleMenu = function(interactive) {
   }
 
   $('.app').toggleClass('menu-active');
-  menuActive = ! menuActive;
+  Session.set('menu-active', ! menuActive);
 };
 
 
@@ -60,6 +59,8 @@ Template.header.events({
 Template.header.rendered = function() {
   var tmpl = this;
 
+  Session.set('menu-active', true);
+
   /**
    * Hide menu when scrolling down and set the 'top' body class.
    *
@@ -77,7 +78,7 @@ Template.header.rendered = function() {
       $('.app').removeClass('top');
     }
 
-    if (menuActive && ! scrolling && yOffset > 15) {
+    if (Session.get('menu-active') && ! scrolling && yOffset > 15) {
       toggleMenu();
     }
   });
