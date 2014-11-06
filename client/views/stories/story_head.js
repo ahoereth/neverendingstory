@@ -6,11 +6,13 @@
 Template.story_head.helpers({
 
   /**
-   * Determines if the votes box for this story should be shown.
+   * Shows the stories vote count or 0.
    */
-  showVotes: function() {
-    return this.voteCount || Meteor.userId();
-  }
+  theVoteCount: function() {
+    return this.voteCount || '0';
+  },
+
+
 
 });
 

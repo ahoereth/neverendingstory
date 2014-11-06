@@ -1,0 +1,154 @@
+// The padding between columns.
+@padding: 4%;
+
+// Calculates the column width dynamically.
+.width(@coulumnCount, @multi: 1) {
+  @widthWithoutPaddings: 100% - (@padding * (@coulumnCount - 1));
+  @spannedPaddings: @padding * (@multi - 1);
+  width: @widthWithoutPaddings / @coulumnCount * @multi + @spannedPaddings;
+}
+
+// All columns should be hold by a row.
+.row {
+  width: 100%;
+  clear: both;
+}
+
+// Column default settings.
+.col-2-1,
+.col-m-2-1,
+.col-x-2-1,
+.col-3-1,
+.col-m-3-1,
+.col-x-3-1,
+.col-3-2,
+.col-m-3-2,
+.col-x-3-2,
+.col-4-1,
+.col-m-4-1,
+.col-x-4-1,
+.col-4-2, // alias for col-2-1
+.col-m-4-2,
+.col-x-4-2,
+.col-4-3,
+.col-m-4-3,
+.col-x-4-3  {
+  margin-right: @padding;
+  float: left;
+  width: 100%; // default, if not other defined below.
+
+  // The last column in a row has no padding.
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+//******************************************************************************
+// MOBILE FIRST. Think: Smartphones
+body {
+  font-size: 62.5% * 1.5; // ~ 15px
+}
+
+.col-2-1,
+.col-4-2 {
+  .width(2); // 50
+}
+
+.col-3-1 {
+  .width(3); // 33
+}
+
+.col-3-2 {
+  .width(3, 2); // 66
+}
+
+.col-4-1 {
+  .width(4); // 25
+}
+
+.col-4-3 {
+  .width(4, 3); // 75
+}
+
+.content-wrapper {
+  width: 100%;
+}
+
+//******************************************************************************
+// Medium Screens. Think: Tablets
+@media screen AND (min-width: 760px) {
+  body {
+    font-size: 62.5% * 1.75; // ~ 17.5px
+  }
+
+  .content-wrapper {
+    width: 740px;
+  }
+
+  // They all just inherit from the initial setting (which already was in %).
+  // If the screen is smaller than this they take full width.
+  .col-m-2-1,
+  .col-m-4-2 {
+    .col-2-1;
+  }
+
+  .col-m-3-1 {
+    .col-3-1;
+  }
+
+  .col-m-3-2 {
+    .col-3-2;
+  }
+
+  .col-m-4-1 {
+    .col-4-1;
+  }
+
+  .col-m-4-3 {
+    .col-4-3;
+  }
+}
+
+//******************************************************************************
+// Big Screens. Think: Laptops
+@media screen AND (min-width: 1020px) {
+  body {
+    font-size: 62.5% * 2; // ~ 20px
+  }
+
+  .content-wrapper {
+    width: 1000px;
+  }
+
+  // See comment in the medium size media query above.
+  .col-x-2-1 {
+    .col-2-1;
+  }
+
+  .col-x-3-1 {
+    .col-3-1;
+  }
+
+  .col-x-3-2 {
+    .col-3-2;
+  }
+
+  .col-x-4-1 {
+    .col-4-1;
+  }
+
+  .col-x-4-3 {
+    .col-4-3;
+  }
+}
+
+// Unsure about this one. Also applies on laptops currently.
+@media screen AND (min-width: 1160px) {
+  body {
+    font-size: 62.5% * 2; // ~ 20px
+  }
+
+  .content-wrapper {
+    width: 1120px;
+  }
+}

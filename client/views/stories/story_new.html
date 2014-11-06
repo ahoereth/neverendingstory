@@ -1,5 +1,5 @@
 <template name="story_new">
-  <div class="story">
+  <div class="story box">
     {{#if currentUser}}
       <form>
         <input name="title" class="title" type="text" placeholder="This is the Neverending Story..."><br>
@@ -7,7 +7,7 @@
         <button type="submit">Start Story</button>
       </form>
     {{else}}
-      <h2 class="fadedout">Your Story</h2>
+      <h2 class="fadedout title">Your Story</h2>
       <p class="preface fadedout">Your own story can be right here! All you need to do is to login.</p>
     {{/if}}
   </div>
