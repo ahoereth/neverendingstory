@@ -1,28 +1,11 @@
 <template name="join">
-  <div class="view">
+  <div class="view join">
     {{#unless currentUser}}
     <h1 class="blocktitle">Join the community</h1>
 
     <div class="row">
       <div class="box box-1">
-        <form class="join">
-          <div class="form-row tickables">
-            <label>Login <input type="radio" name="do" value="login" checked /></label>
-            <label>Signup <input type="radio" name="do" value="signup" /></label>
-          </div>
-
-          <div class="form-row">
-            <label>Username</label>
-            <input type="text" name="username" required />
-          </div>
-
-          <div class="form-row">
-            <label>Password</label>
-            <input type="password" name="password" required />
-          </div>
-
-          <button type="submit">Login</button>
-        </form>
+        {{> join_form}}
       </div>
 
     </div>
@@ -34,6 +17,7 @@
     <p class="lead">This is your personal page, you can change some settings, export your data and stuff.</p>
 
     <div class="box box-1">
+      <h2>Logout</h2>
       <button class="logout">Logout</button>
     </div>
     {{/if}}

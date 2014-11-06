@@ -1,0 +1,20 @@
+<template name="join_form">
+  <form class="join-form">
+    <div class="form-row tickables">
+      <label>Login <input type="radio" name="do" value="login" checked /></label>
+      <label>Signup <input type="radio" name="do" value="signup" /></label>
+    </div>
+
+    <div class="form-row">
+      <label>Username</label>
+      <input type="text" name="username" required />
+    </div>
+
+    <div class="form-row">
+      <label>Password</label>
+      <input type="password" name="password" required />
+    </div>
+
+    <button type="submit">Login</button>
+  </form>
+</template>

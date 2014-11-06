@@ -22,12 +22,13 @@
         </li>
         <li>
           {{#if currentUser}}
-          <a href="{{pathFor 'login'}}">
+          <!-- link to the user profile when it exists instead -->
+          <a href="{{pathFor 'join'}}">
             <i class="fa fa-child"></i>
             You
           </a>
           {{else}}
-          <a href="{{pathFor 'login'}}">
+          <a href="{{pathFor 'join'}}">
             <i class="fa fa-paint-brush"></i>
             Join
           </a>
