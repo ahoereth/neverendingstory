@@ -1,13 +1,15 @@
+// Inspired by the following resources
+// http://lesselements.com
+
 .box-shadow(@arguments) {
   -webkit-box-shadow: @arguments;
      -moz-box-shadow: @arguments;
           box-shadow: @arguments;
 }
 
+// Shorthand alias.
 .drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
-  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-     -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-          box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  .box-shadow(@x-axis @y-axis @blur rgba(0, 0, 0, @alpha));
 }
 
 .transition(@arguments: all 0.3s ease-out) {
@@ -30,6 +32,8 @@
           border-radius: @radius;
 }
 
+
+
 .animation(@animation) {
 /*animation-name: spin;
   animation-duration: .2s;
@@ -38,7 +42,7 @@
 
   -webkit-animation: @animation;
      -moz-animation: @animation;
-      -ms-animation: @animation;
+       -o-animation: @animation;
           animation: @animation;
 }
 

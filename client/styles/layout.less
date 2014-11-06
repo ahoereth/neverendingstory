@@ -1,0 +1,123 @@
+// Index styles.
+
+@import 'imports/deps.import.less';
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: @color;
+  padding: 0; margin: 0;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.app {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.content {
+  position: relative;
+  left: 0;
+  top: 0;
+  max-width: 100%;
+
+  // We not really want to animate anything here, but this fixes a rendering
+  // glitch in some browsers which is caused by 'top' transition reflowing
+  // triggered through other elemnts. Using the same transition time as the
+  // header - which is transitioned - the content element is rerendered
+  // accordingly.
+  .transition(top @header-animation-duration ease-out);
+}
+
+// See transition property above.
+.menu-active .content {
+  top: 1px;
+}
+
+.view {
+  position: absolute;
+  top: 0;
+  .transition(left .5s ease-in);
+  width: 100%;
+
+  // Hide elements below.
+  background-color: #fff;
+
+  // Default initial position. Changed using JS.
+  left: -150%;
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  clear: both;
+}
+
+.blocktitle {
+  padding: 0;
+  margin: 2em 0 0 0;
+  border-bottom: 1px solid @accent;
+}
+
+.box {
+  margin: .5em 0 2em;
+  .drop-shadow(0, 2px, 4px, 0.5);
+  padding: .5em 5%;
+}
+
+.row {
+  width: 100%;
+
+  .box-1 {
+    width: 90%;
+    clear: both;
+  }
+
+  .box-2-1 {
+    width: 37.5%;
+    margin-right: 5%;
+    margin-left: 0;
+    float: left;
+  }
+
+  .box-2-1:nth-child(2) {
+    margin-right: 0;
+  }
+}
+
+// width: 360px
+@media (max-width: 760px) {
+  body {
+    font-size: 62.5% * 1.5; // ~ 15px
+  }
+
+  .content-wrapper {
+    width: 360px;
+  }
+}
+
+// width: 740px
+@media (min-width: 761px) and (max-width: 1160px) {
+  body {
+    font-size: 62.5% * 1.75; // ~ 17.5px
+  }
+
+  .content-wrapper {
+    width: 740px;
+  }
+
+}
+
+// width: 1120px
+@media (min-width: 1161px) {
+  body {
+    font-size: 62.5% * 2; // ~ 20px
+  }
+
+  .content-wrapper {
+    width: 1120px;
+  }
+}
