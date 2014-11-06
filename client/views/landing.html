@@ -6,16 +6,18 @@
     <h2 class="blocktitle">Featured Stories:</h2>
     <div class="row">
     {{#each featuredStories}}
-        <div class="box box-2-1">
+        <div class="col-2-1">
           {{> story_excerpt}}
         </div>
     {{/each}}
     </div>
     {{#unless currentUser}}
     <div class="row">
-      <div class="box box-2-1">
-        <h2>Be part of it</h2>
-        {{> join_form}}
+      <div class="col-2-1">
+        <div class="box">
+          <h2>Be part of it</h2>
+          {{> join_form}}
+        </div>
       </div>
     </div>
     {{/unless}}

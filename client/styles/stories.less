@@ -3,39 +3,39 @@
 
 @import 'imports/deps.import.less';
 
-.story {
-  position: relative;
-  .drop-shadow(0, 2px, 4px, 0.5);
-  margin: 2em 0;
-  width: 90%;
-  padding: 2em 5%;
+.story,
+.story-excerpt {
 
+  .title {
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0;
+  }
+
+  // The settings below work well for up to 3 digit numbers.
+  @votes-font-size: 1em;
   .votes {
     position: absolute;
-    top: 0; right: 0;
-    border: 1px solid @primary;
-    background-color: @primary2;
-    .rounded(.5em);
-    width: 1em;
-    height: 1em;
-    line-height: 1em;
-    font-size: 2em;
-    float: right;
     text-align: center;
     cursor: pointer;
     .noselect();
-  }
 
-  .title {
-    font-size: 2em;
-    padding: 0;
-    margin: 0;
+    top: 1/@votes-font-size;
+    right: 1/@votes-font-size;
+    width: @votes-font-size*2;
+    height: @votes-font-size*2;
+    line-height: @votes-font-size*2;
+    font-size: @votes-font-size;
+    .rounded(@votes-font-size*2);
+
+    border: 1px solid @primary;
+    background-color: @primary2;
   }
 
   .preface {
     padding: 0;
     margin: 0;
-    font-size: 1.25em;
+    font-size: 1.2em;
   }
 
   .paragraph {

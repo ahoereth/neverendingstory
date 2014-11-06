@@ -3,9 +3,7 @@
     <h1 class="blocktitle">Stories overview</h1>
     <p>Filter/sort by: Genre | Tags | Length | Contributors</p>
     {{#each stories}}
-      <div class="box box-1">
-        {{> story_excerpt}}
-      </div>
+      {{> story_excerpt}}
     {{/each}}
 
     {{> story_new}}
