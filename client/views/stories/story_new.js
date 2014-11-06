@@ -16,7 +16,7 @@ Template.story_new.events({
       return;
 
     // Get form data.
-    var form = tmpl.$('form');
+    var form = tmpl.$(e.target);
     var fields = parseForm(form);
 
     // Stories require a non empty title!

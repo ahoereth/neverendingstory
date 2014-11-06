@@ -1,10 +1,7 @@
 <template name="story_excerpt">
-  <!--<div class="story">-->
+  <div class="story-excerpt">
     {{> story_head}}
 
-    <div class="actions">
-      <a href="/story/{{_id}}">View</a>
-      <button type="button" class="delete">Delete</button>
-    </div>
-  <!--</div>-->
+    <a class="view-story" href="/story/{{_id}}">View</a>
+  </div>
 </template>

@@ -1,7 +1,9 @@
 <template name="story_head">
-  <h2 class="title">{{title}}</h2>
-  <p class="preface">{{#markdown}}{{preface}}{{/markdown}}</p>
-  {{#if showVotes}}
-    <span class="votes">{{voteCount}}</span>
-  {{/if}}
+  <div class="story-head">
+    <h2 class="title">{{title}}</h2>
+    <p class="preface">{{#markdown}}{{preface}}{{/markdown}}</p>
+    {{#if showVotes}}
+      <span class="votes">{{voteCount}}</span>
+    {{/if}}
+  </div>
 </template>

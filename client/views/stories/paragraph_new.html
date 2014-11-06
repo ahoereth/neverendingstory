@@ -1,12 +1,15 @@
 <template name="paragraph_new">
-  {{#if currentUser}}
-    <p class="paragraph_new">
-      <form>
-        <textarea name="content" class="paragraph" placeholder="And so it continues..."></textarea><br>
-        <button type="submit">Post</button>
-      </form>
-    </p>
-  {{else}}
-    <p class="italic">If you want to continue this story you need to log in!</p>
-  {{/if}}
+  <div class="paragraph-new">
+    {{#if currentUser}}
+      <p>
+        <form>
+          <textarea name="content" class="paragraph" placeholder="And so it continues..."></textarea>
+          <br>
+          <button type="submit">Post</button>
+        </form>
+      </p>
+    {{else}}
+      <p class="italic">If you want to continue this story you need to log in!</p>
+    {{/if}}
+  </div>
 </template>
