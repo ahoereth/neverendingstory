@@ -5,21 +5,40 @@
 
     <h2 class="blocktitle">Featured Stories:</h2>
     <div class="row">
-    {{#each featuredStories}}
+      {{#each stories}}
         <div class="col-2-1">
           {{> story_excerpt}}
         </div>
-    {{/each}}
+      {{/each}}
     </div>
-    {{#unless currentUser}}
     <div class="row">
       <div class="col-2-1">
         <div class="box">
-          <h2>Be part of it</h2>
-          {{> join_form}}
+          <h2>Recently active stories</h2>
+          <ul>
+            <li>Story XY - uvw voted</li>
+            <li>Sotry YZ - new paragraph by abc</li>
+          </ul>
         </div>
       </div>
+      {{#unless currentUser}}
+        <div class="col-2-1">
+          <div class="box">
+            <h2>Be part of it</h2>
+            {{> join_form}}
+          </div>
+        </div>
+      {{else}}
+        <div class="col-2-1">
+          <div class="box">
+            <h2>
+              Most recent messages
+              <a href="{{pathFor 'chat'}}" class="undercover clickable right">&rarr;</a>
+            </h2>
+            {{> messages_list}}
+          </div>
+        </div>
+      {{/unless}}
     </div>
-    {{/unless}}
   </div>
 </template>
