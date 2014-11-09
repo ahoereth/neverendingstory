@@ -1,0 +1,26 @@
+<template name="message">
+  <div class="message {{own}}">
+    {{#with theAuthor}}
+      <!-- link to the user profile -->
+      <span class="avatar left">
+        <!-- use author avatar here -->
+        <img src="http://dummyimage.com/50x50/000000/fff" />
+      </span>
+
+      <span class="username">
+        {{#if status.online}}
+          <span class="active fa fa-circle" title="Online now."></span>
+        {{/if}}
+
+        <!-- link to the user profile -->
+        <span class="clickable">{{username}}</span>
+      </span>
+    {{/with}}
+
+    <span class="time" title="{{time.full}}">{{time.short}}</span>
+
+    <p>{{content}}</p>
+
+    <div class="clear"></div>
+  </div>
+</template>
