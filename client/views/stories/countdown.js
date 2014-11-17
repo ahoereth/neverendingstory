@@ -13,16 +13,20 @@ var timeToText = function(t){
 
 Template.countdown.created = function() {
 
-  //Reactive variable for time in seconds
-  this.timer = new ReactiveVar;
-  // This should be changed into the value retrieved from the server
-  this.timer.set(604800);
+  //Do this only if nextElectionDate has been defined for this story
 
-  //Decrease the time every second
-  var template = Template.instance();
-  setInterval(function() {
-      template.timer.set(template.timer.get()-1);
-  }, 1000);
+    //Reactive variable for time in seconds
+    this.timer = new ReactiveVar;
+    // This should be changed into the value retrieved from the server
+    var countdown = 259200;
+    //Stories.findOne(this._id).nextElectionDate - Date.now();
+    this.timer.set(countdown);
+
+    //Decrease the time every second
+    var template = Template.instance();
+    setInterval(function() {
+        template.timer.set(template.timer.get()-1);
+    }, 1000);
 
 };
 
@@ -34,7 +38,11 @@ Template.countdown.created = function() {
 Template.countdown.helpers({
 
   timeRemaining: function () {
-    return timeToText(Template.instance().timer.get());
+    if(Stories.findOne(this._id).nextElectionDate != undefined){
+      return timeToText(Template.instance().timer.get());
+    }else{
+      return "No Election Yet";
+    }
   }
 
 });
