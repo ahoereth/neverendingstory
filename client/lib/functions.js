@@ -29,3 +29,14 @@ parseForm = function(form) {
 
   return fields;
 };
+
+
+/**
+ * Prepend a given number with zeros so it has a overall length of n.
+ *
+ * @param  {Number} n Desired length.
+ * @return {String}
+ */
+Number.prototype.zeropad = function(n) {
+    return (new Array(n+1).join('0') + this).slice(-n);
+};

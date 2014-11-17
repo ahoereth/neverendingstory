@@ -1,0 +1,30 @@
+<template name="chat">
+  <!-- This is not meant for production, just a proof of concept. -->
+  <div class="view chat">
+    <h1 class="blocktitle">Global Chat</h1>
+    <p class="lead">
+      This is the public chat to talk to all online users.
+      On the right side you see active story focused chats to join alternativley.
+    </p>
+    <div class="row">
+      <div class="col-4-3">
+        <div class="box">
+          {{> messages_list}}
+        </div>
+        <div class="box">
+          {{> message_new scope='public'}}
+        </div>
+      </div>
+      <div class="col-4-1">
+        <div class="box">
+          List of currently active chats.
+          <ul>
+            <li class="clickable">Story XY (24)</li>
+            <li class="clickable">Story YZ (3)</li>
+            <li>[...]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
