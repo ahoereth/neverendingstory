@@ -15,12 +15,12 @@ Template.countdown.created = function() {
 
   //Do this only if nextElectionDate has been defined for this story
 
-    //Reactive variable for time in seconds
-    this.timer = new ReactiveVar;
     // This should be changed into the value retrieved from the server
     var countdown = 259200;
-    //Stories.findOne(this._id).nextElectionDate - Date.now();
-    this.timer.set(countdown);
+    //new Date(Stories.findOne(this._id).nextElectionDate) - Date.now();
+
+    //Reactive variable for time in seconds
+    this.timer = new ReactiveVar(countdown);
 
     //Decrease the time every second
     var template = Template.instance();

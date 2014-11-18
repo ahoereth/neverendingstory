@@ -50,19 +50,19 @@ Meteor.startup(function () {
     for (var i = 0, story; i < stories.length; i++) {
       story = stories[i];
       var _id = Stories.insert({
-        creator: 'mock',
-        title  : story.title,
-        preface: story.preface,
-        created: Date.now()
+        creator  : 'mock',
+        title    : story.title,
+        preface  : story.preface,
+        createdAt: currentDate()
       });
 
       // Every story has a preface which wants its own component.
       Components.insert({
-        author : 'mock',
-        content: story.preface,
-        story  : _id,
-        type   : 'preface',
-        created: Date.now()
+        author   : 'mock',
+        content  : story.preface,
+        story    : _id,
+        type     : 'preface',
+        createdAt: currentDate()
       });
 
       // Iterating through all the paragraphs of a story, inserting all of them
@@ -80,7 +80,7 @@ Meteor.startup(function () {
           elected  : (j < (paragraphs.length - 1)),
           voteCount: 0,
           votes    : [],
-          created  : Date.now()
+          created  : currentDate()
         });
       }
     }
