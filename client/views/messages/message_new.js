@@ -23,7 +23,13 @@ Template.message_new.events({
   'submit form': function(e, tmpl) {
     handleNaturally(e);
 
-    console.log(tmpl);
+    // Check if template is used correctly. TODO: The 'scope' and 'to'
+    // requirement is actually ugly, maybe this can be enhanced somehow.
+    if (tmpl.data.scope && tmpl.data.scope != 'public' && !tmpl.data.to) {
+      console.error('The message_new template is used in a not "public" scope '+
+        'but does not have a "to" property set.');
+      return;
+    }
 
     var $form  = tmpl.$(e.target);
     var fields = parseForm($form);
@@ -32,24 +38,17 @@ Template.message_new.events({
     if (! fields.content)
       return;
 
-    if (tmpl.data.scope && tmpl.data.scope != 'public' && !tmpl.data.to) {
-      console.error('No "to" set for the message_new template');
-      return;
-    }
-
-    var args = {
+    // Create new message.
+    Meteor.call('messages/new', {
       content: fields.content,
-      scope  : tmpl.data.scope || 'public' // {public, story, component, private}
-    };
+      scope  : tmpl.data.scope || 'public', // {public, story, component, private}
+      to     : tmpl.data.to || undefined
+    });
 
-    if (tmpl.data.to) {
-      args.to = tmpl.data.to;
-    }
-
-    Meteor.call('messages/new', args);
-      //to : undefined, // id of story, component or user
-
+    // Reset form.
     $form.trigger('reset');
+
+    // Reselect textarea for quickly typing the next message.
     $form.find('textarea').select();
   }
 });

@@ -1,14 +1,14 @@
 <template name="message">
-  <div class="message {{own}}">
-    {{#with theAuthor}}
+  <div class="message {{isOwnMessage}}">
+    {{#with from}}
       <!-- link to the user profile -->
       <span class="avatar left">
-        <!-- use author avatar here -->
+        <!-- use author avatar here {{profile.avatar}}-->
         <img src="http://dummyimage.com/50x50/000000/fff" />
       </span>
 
       <span class="username">
-        {{#if status.online}}
+        {{#if senderIsOnline}}
           <span class="active fa fa-circle" title="Online now."></span>
         {{/if}}
 

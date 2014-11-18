@@ -52,8 +52,11 @@ Template.message.helpers({
    *
    * @return {Object} user object
    */
-  theAuthor: function() {
-    return Meteor.users.findOne(this.from);
+  senderIsOnline: function() {
+    return !! Meteor.users.findOne({
+      _id: this._id,
+      'status.online': true
+    });
   },
 
 
@@ -62,8 +65,8 @@ Template.message.helpers({
    *
    * @return {String/Boolean}
    */
-  own: function() {
-    return Meteor.userId() == this.from ? 'own' : false;
+  isOwnMessage: function() {
+    return Meteor.userId() == this.from._id ? 'own' : false;
   }
 
 });
