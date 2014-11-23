@@ -3,6 +3,7 @@
 */
 
 var timeToText = function(t){
+  var t = Math.floor(t/1000);
   var days = Math.floor(t/(60*60*24));
   var hours = Math.floor((t - days*60*60*24)/(60*60));
   var mins = Math.floor((t - days*60*60*24 - hours*60*60)/60);
@@ -13,20 +14,35 @@ var timeToText = function(t){
 
 Template.countdown.created = function() {
 
-  //Do this only if nextElectionDate has been defined for this story
+  var nextElectionDate = Stories.findOne(this.data._id).nextElectionDate;
+  this.timer = new ReactiveVar(0);
 
-    // This should be changed into the value retrieved from the server
-    var countdown = 259200;
-    //new Date(Stories.findOne(this._id).nextElectionDate) - Date.now();
-
-    //Reactive variable for time in seconds
-    this.timer = new ReactiveVar(countdown);
-
-    //Decrease the time every second
-    var template = Template.instance();
-    setInterval(function() {
-        template.timer.set(template.timer.get()-1);
+  // Run the countdown and returns the id of the setInterval
+  function runCountdown(nextElectionDate, timer){
+    var next = new Date(nextElectionDate), now = new Date();
+    var countdown = next - now;
+    timer.set(countdown);
+    return setInterval(function() {
+        timer.set(timer.get()-1000);
     }, 1000);
+  }
+
+  // We need to observe the nextElectionDate variable anyway in case it's unset
+  var self = this;
+  Stories.find(this.data._id, {fields : {nextElectionDate : 1}}).observeChanges({
+    changed: function (id, fields){
+      if(!_.isUndefined(fields.nextElectionDate)){
+        self.timer_id = runCountdown(fields.nextElectionDate, self.timer);
+      }else{
+        clearInterval(self.timer_id);
+      }
+    }
+  });
+
+  // If it is set, we run it from the beginning
+  if(!_.isUndefined(nextElectionDate)){
+    self.timer_id = runCountdown(nextElectionDate, this.timer);
+  }
 
 };
 
@@ -38,10 +54,10 @@ Template.countdown.created = function() {
 Template.countdown.helpers({
 
   timeRemaining: function () {
-    if(Stories.findOne(this._id).nextElectionDate != undefined){
-      return timeToText(Template.instance().timer.get());
-    }else{
+    if(_.isUndefined(this.nextElectionDate)){
       return "No Election Yet";
+    }else{
+      return timeToText(Template.instance().timer.get());
     }
   }
 
