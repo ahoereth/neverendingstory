@@ -7,7 +7,6 @@ Package.on_use(function (api) {
   api.use([
     'templating',
     'less',
-    'session',
     'reactive-var',
     'underscore'
   ], 'client');
