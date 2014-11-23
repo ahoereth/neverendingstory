@@ -1,0 +1,31 @@
+# Toast Notifications
+
+Currently only part of the local app.
+
+## Usage
+Add the `toasts` template to your application's DOM.
+
+    {{> toasts}}
+
+
+## API
+
+The package exposes the `Toasts` JavaScript object which has two methods:
+
+* `Toasts.add(args)`: Used for added/showing a new toast notification. `args` is
+an `Object` containing the following keys:
+
+  * *String* `message`: The message to display in the toast notification.
+  * *String*/*Number* `identifier`: A unique identifier which is used to ensure the notification is only shown once and which can be used to remove the notification later using `Toasts.remove()`.
+  * *String* `level`: The importance level of the notification: `notice`/`warning`/`error`. Used for styling.
+  * *Integer* `timeout`: The time in milliseconds after which the toast should disappear.
+
+* `Toasts.remove(indentifier)`: Removes the toast defined by the `identifier` (see above) if it is still active.
+
+## Customization
+
+Alternatively one can pass a class name to the template in order to discard the predefined CSS styles and style it individually. The toasts are always wrapped in a div with the `.toasts` class and each toast can be styled using `.toast`.
+
+    {{> toasts unstyled}}
+
+For applying CSS transitions utilize the `.hide` class. Every toast has it before made visible and before being removed from the screen.

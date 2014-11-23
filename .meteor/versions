@@ -3,6 +3,7 @@ accounts-password@1.0.4
 accounts-ui-unstyled@1.1.4
 accounts-ui@1.1.3
 amr:parsley.js@2.0.5
+app-toasts@0.0.0
 application-configuration@1.0.3
 audit-argument-checks@1.0.1
 autoupdate@1.1.3

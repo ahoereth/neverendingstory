@@ -34,3 +34,30 @@ Meteor.startup(function() {
   });
 
 });
+
+
+// Is the connection to the server active? Can be easily used in helpers etc.
+Session.set('connection', false);
+
+
+// Reactive function which reruns when the connection status changes. Handles
+// the toast message notifying the user of the connection status.
+Deps.autorun(function() {
+  var status = Meteor.status();
+  var connection = Session.get('connection');
+
+  // Had a connection, lost it.
+  if (connection && !status.connected) {
+    Session.set('connection', false);
+    Toasts.add({
+      identifier : 'connection',
+      level      : 'error',
+      message    : 'Connection to server lost. Reconnecting...'
+    });
+
+  // Reconnected.
+  } else if (!connection && status.connected) {
+    Session.set('connection', true);
+    Toasts.remove('connection');
+  }
+});
