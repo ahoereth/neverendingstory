@@ -5,11 +5,18 @@
 
 .story,
 .story-excerpt {
+  position: relative;
 
   .title {
     font-size: 1.5em;
-    padding: 0;
+    padding: .5em 0 0 0;
     margin: 0;
+    border-bottom: 1px solid @accent;
+  }
+
+  .meta {
+    font-size: .8em;
+    font-style: italic;
   }
 
   // The settings below work well for up to 3 digit numbers.
@@ -87,4 +94,9 @@
     border: 0;
     border-bottom: 1px dashed #000;
   }
+}
+
+// TODO: needs to be fixed
+.story .title {
+  padding-top: 1em;
 }

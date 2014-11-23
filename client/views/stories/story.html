@@ -2,20 +2,22 @@
   <!-- A story is currently only completly rendered in its own view. -->
   <!-- This might need to change in the future. -->
   <div class="view">
-    <div class="box">
-      <div class="story">
-        {{> story_head}}
+    <div class="row">
+      <div class="col-4-3">
+        <div class="story">
+          {{> story_head}}
 
-        {{#each paragraphs}}
-          {{> paragraph}}
-        {{/each}}
+          {{#each paragraphs}}
+            {{> paragraph}}
+          {{/each}}
 
-      <div class="paragraph_vote">
-        {{#each nextParagraph}}{{> paragraph}}{{/each}}
-      </div>
-        {{> countdown}}
+        <div class="paragraph_vote">
+          {{#each nextParagraph}}{{> paragraph}}{{/each}}
+        </div>
+          {{> countdown}}
 
-        {{> paragraph_new}}
+          {{> paragraph_new}}
+        </div>
       </div>
     </div>
   </div>
