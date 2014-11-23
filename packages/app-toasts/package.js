@@ -3,6 +3,7 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
+  // client dependencies
   api.use([
     'templating',
     'less',
@@ -11,6 +12,7 @@ Package.on_use(function (api) {
     'underscore'
   ], 'client');
 
+  // global namespace
   api.add_files('namespace.js');
 
   // client side functionality
@@ -20,8 +22,7 @@ Package.on_use(function (api) {
   api.add_files([
     'views/toasts.less',
     'views/toasts.html',
-    'views/toasts.js',
-    'views/toasts_toast.html'
+    'views/toasts.js'
   ], 'client');
 
   api.export('Toasts');

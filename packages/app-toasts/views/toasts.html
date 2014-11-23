@@ -1,7 +1,9 @@
 <template name="toasts">
   <div class="toasts {{class}}">
     {{#each toasts}}
-      {{> toasts_toast}}<br>
+      <div class="toast {{level}}">
+        <span>{{message}}</span>
+      </div>
     {{/each}}
   </div>
 </template>
