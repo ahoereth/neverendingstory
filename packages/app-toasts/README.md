@@ -16,9 +16,11 @@ The package exposes the `Toasts` JavaScript object which has two methods:
 an `Object` containing the following keys:
 
   * *String* `message`: The message to display in the toast notification.
-  * *String*/*Number* `identifier`: A unique identifier which is used to ensure the notification is only shown once and which can be used to remove the notification later using `Toasts.remove()`.
-  * *String* `level`: The importance level of the notification: `notice`/`warning`/`error`. Used for styling.
-  * *Integer* `timeout`: The time in milliseconds after which the toast should disappear.
+  * *String* `link`: Action link for the toast. Clicking the link also dismisses the toast. (**Optional**.)
+  * *String* `level`: The importance level of the notification: `notice`/`warning`/`error`. Used for styling. (**Optional**, default `notice`.)
+  * *Integer* `timeout`: The time in milliseconds after which the toast should disappear. (**Optional**, default is persistent.)
+  * *String*/*Number* `identifier`: A unique identifier which is used to ensure the notification is only shown once and which can be used to remove the notification later using `Toasts.remove()`. (**Optional**)
+  * *Boolean* `dismissible`: Enable/disable dismiss button. (**Optional**, default `true`.)
 
 * `Toasts.remove(indentifier)`: Removes the toast defined by the `identifier` (see above) if it is still active.
 

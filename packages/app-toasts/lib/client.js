@@ -9,12 +9,25 @@ Toasts.toasts = new ReactiveVar([]);
  * Shows a toast notification.
  *
  * @param {Object} args
- *   {String/Number} identifier
+ *   {String/Number} identifier (optional)
  *   {String}        message
- *   {String}        level: notice/warning/error
- *   {Number}        timeout
+ *   {String}        level: notice/warning/error, (optional, default notice)
+ *   {String}        link: action hyperlink (optional)
+ *   {Number}        timeout (optional),
+ *   {Boolean}       dismissible (optional, default true)
  */
 Toasts.add = function(args) {
+  // A message must be provided.
+  if (! args.message)
+    return;
+
+  // Default values for identifier and level.
+  _.defaults(args, {
+    identifier: Random.id(),
+    dismissible: args.dismissable || true,
+    level: 'notice'
+  });
+
   // Get current toasts.
   var toasts = Toasts.toasts.get() || [];
 
@@ -35,6 +48,7 @@ Toasts.add = function(args) {
     }, args.timeout);
   }
 };
+
 
 /**
  * Hides an active toast notification.

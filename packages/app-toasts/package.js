@@ -21,7 +21,9 @@ Package.on_use(function (api) {
   api.add_files([
     'views/toasts.less',
     'views/toasts.html',
-    'views/toasts.js'
+    'views/toasts.js',
+    'views/toasts_toast.html',
+    'views/toasts_toast.js'
   ], 'client');
 
   api.export('Toasts');

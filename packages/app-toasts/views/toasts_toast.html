@@ -1,0 +1,12 @@
+<template name="toasts_toast">
+  <div class="toast {{level}}">
+    <span class="toast-content">
+      {{#if link}}
+        <a href="{{link}}">{{message}}</a>
+      {{else}}
+        {{message}}
+      {{/if}}
+      <span class="toast-kill {{#if dismissible}}active{{/if}}">&times;</span>
+    </span>
+  </div>
+</template>
