@@ -3,7 +3,7 @@
 /******************************************************************************/
 /* Messages PUBLISHING */
 /******************************************************************************/
-Meteor.publishComposite('messages', function (args) {
+Meteor.publish('messages', function (args) {
   args = args || {};
 
   check(args, {
@@ -20,31 +20,9 @@ Meteor.publishComposite('messages', function (args) {
   options.limit = selector.limit || 100;
 
   // We are always just interested in the most recent messages.
-  options.sort = {created: -1};
+  options.sort = {createdAt: -1};
 
-  return {
-    // Get the messages.
-    find: function() {
-      return Messages.find(selector, options);
-    },
-    children: [{
-      // Get the authors profile for every message.
-      find: function(message) {
-        return Meteor.users.find(
-          message.author,
-          {
-            limit : 1,
-            fields: {
-              username: 1,
-              //avatar  : 1,
-              status  : 1
-            }
-          }
-        );
-      }
-    }]
-  };
-
+  return Messages.find(selector, options);
 });
 
 
