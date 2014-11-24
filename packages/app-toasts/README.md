@@ -26,8 +26,14 @@ an `Object` containing the following keys:
 
 ## Customization
 
-Alternatively one can pass a class name to the template in order to discard the predefined CSS styles and style it individually. The toasts are always wrapped in a div with the `.toasts` class and each toast can be styled using `.toast`.
+To modify the location one can pass a string to the template which contains a combination of the following class names:
 
-    {{> toasts unstyled}}
+* `top`/`bottom`
+* `left`/`center`/`right`
+
+They should be self explanatory. Default is `bottom center`. Alternatively one can pass `unstyled` to discard the built-in styles. To manually style the toasts all toasts are wrapped in a div with the `.toasts` class and each toast can be styled using `.toast`.
+
+    {{> toasts 'top right'}}
+    {{> toasts 'unstyled'}}
 
 For applying CSS transitions utilize the `.hide` class. Every toast has it before made visible and before being removed from the screen.

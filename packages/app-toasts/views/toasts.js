@@ -13,8 +13,13 @@ Template.toasts.helpers({
   // Top level class of the main template. Used for applying or ignoring
   // the default package styles.
   class: function() {
-    var data = Template.instance().data;
-    return ! _.isEmpty(data) && _.isString(data) ? data : 'styled';
+    var tmpl = Template.instance();
+    var classes = _.isString(tmpl.data) ? tmpl.data : 'bottom center';
+    if (-1 == classes.indexOf('unstyled')) {
+      classes += ' styled';
+    }
+
+    return classes;
   }
 
 });
