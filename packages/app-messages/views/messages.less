@@ -1,0 +1,98 @@
+// ************************************************************************** //
+// Functions
+.transition(@arguments: all 0.3s ease-out) {
+  -webkit-transition: @arguments;
+     -moz-transition: @arguments;
+       -o-transition: @arguments;
+          transition: @arguments;
+}
+
+.transform(@arguments) {
+  -webkit-transform: @arguments;
+     -moz-transform: @arguments;
+       -o-transform: @arguments;
+          transform: @arguments;
+}
+
+
+// ************************************************************************** //
+// Variables
+
+// Highlight color for current user's own messages and the online status icon.
+@active: #63a924; // Color taken facebook's online status
+
+
+// ************************************************************************** //
+// Styles
+.chat .messages {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.message {
+  display: block;
+  margin: 1em 0;
+
+  .avatar {
+    position: relative;
+    margin-right: 1em;
+    width: 50px;
+    height: 50px;
+  }
+
+  .username .active {
+    margin-left: -1.5em;
+    font-size: .25em;
+    vertical-align: middle;
+    color: @active;
+  }
+
+  .time {
+    float: right;
+    font-size: .75em;
+    line-height: 1.25em;
+  }
+
+  p {
+    margin: .5em 0 0 0;
+    font-size: .75em;
+    font-style: italic;
+  }
+}
+
+.message.own {
+  background-color: fade(@active, 10%);
+}
+
+.message-new {
+  position: relative;
+
+  textarea {
+    width: 90%;
+    padding-right: 50px;
+    font-size: inherit;
+    font-style: italic;
+    font-family: inherit;
+    border: 0;
+    outline: 0;
+    resize: none;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    width: 10%;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: -15px;
+    background: transparent;
+    border: none;
+    .transition(all .2s ease-in-out);
+
+    &:hover {
+      .transform(scale(1.2));
+    }
+  }
+}

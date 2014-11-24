@@ -1,5 +1,22 @@
 // Single message contoller.
 
+
+/**
+ * Add preceding zero if given number has only 1 digit.
+ *
+ * TODO: Move to utilities package.
+ *
+ * @param  {Number} number
+ * @return {String/Number}
+ */
+zeropad = function(number) {
+  if (number < 10) {
+    return '0' + number;
+  }
+  return number;
+};
+
+
 /****************************************************************************/
 /* Message HELPERS */
 /****************************************************************************/
@@ -37,7 +54,7 @@ Template.message.helpers({
       time += ', ';
     }
 
-    time += created.getHours().zeropad(2) + ':' + created.getMinutes().zeropad(2);
+    time += zeropad(created.getHours()) + ':' + zeropad(created.getMinutes());
 
     return {
       full : created.toLocaleString(), // displayed on hover

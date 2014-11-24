@@ -1,5 +1,5 @@
-// Global messages collection manipulation methods.
-// Documentation: http://docs.meteor.com/#methods_header
+// Messages collection manipulation methods.
+// *global
 
 Meteor.methods({
 
@@ -30,7 +30,7 @@ Meteor.methods({
       to     : args.to || null,
       content: args.content,
       scope  : args.scope,
-      createdAt: currentDate()
+      createdAt: new Date().toISOString()
     });
 
     return _id;

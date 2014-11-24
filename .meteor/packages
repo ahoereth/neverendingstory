@@ -19,4 +19,5 @@ reactive-var
 reywood:publish-composite
 mizzao:user-status
 app-toasts
+app-messages
 

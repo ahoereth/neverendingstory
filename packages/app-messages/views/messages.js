@@ -1,9 +1,9 @@
-// Messages List controller.
+// Messages controller.
 
 /****************************************************************************/
-/* Messages List HELPERS */
+/* Messages HELPERS */
 /****************************************************************************/
-Template.messages_list.helpers({
+Template.messages.helpers({
 
   /**
    * Returns the messages in reverse order.
@@ -19,10 +19,10 @@ Template.messages_list.helpers({
 
 
 /****************************************************************************/
-/* Messages List RENDERED */
+/* Messages RENDERED */
 /****************************************************************************/
-Template.messages_list.rendered = function() {
-  var  list = this.find(".messages-list");
+Template.messages.rendered = function() {
+  var  list = this.find(".messages");
   var $list = $(list);
 
   /**
@@ -30,7 +30,6 @@ Template.messages_list.rendered = function() {
    */
   var scrollToEnd = function() {
     $list.animate({ scrollTop: $list[0].scrollHeight }, 'slow');
-    //$list.scrollTop( $list[0].scrollHeight );
   };
 
   // Scroll to the bottom initially.
@@ -44,6 +43,7 @@ Template.messages_list.rendered = function() {
       $(node).insertBefore(next);
       scrollToEnd();
     }
+
   };
 
 };
