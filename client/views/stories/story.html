@@ -11,9 +11,11 @@
             {{> paragraph}}
           {{/each}}
 
-        <div class="paragraph_vote">
-          {{#each nextParagraph}}{{> paragraph}}{{/each}}
-        </div>
+          <!-- TODO: pagination -->
+          <div class="paragraph_vote">
+            {{#each nextParagraph}}{{> paragraph}}{{/each}}
+          </div>
+
           {{> countdown}}
 
           {{> paragraph_new}}

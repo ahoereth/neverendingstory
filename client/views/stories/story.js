@@ -35,10 +35,13 @@ Template.story.helpers({
       priority: priority
     }, {sort: {voteCount: -1}}).fetch();
 
-    // Show the first one.
-    if ( paragraphs.length ) {
-      paragraphs[0].initial = true;
-    }
+    // Show the first four paragraph options.
+    // TODO: Make this more dynamic if there is a big voteCount discrepancy or
+    // simillar.
+    _.each(paragraphs, function(paragraph, i) {
+      if (i > 4) return;
+      paragraph.initial = true;
+    });
 
     return paragraphs;
   }

@@ -1,13 +1,16 @@
 <template name="paragraph">
   <div class="paragraph {{#if isHidden}}hidden{{/if}}">
-    <p>{{#markdown}}{{content}}{{/markdown}}</p>
-    {{#unless elected}}
-      <div class="actions">
-        {{#if canDelete}}<span class="remove clickable">delete</span> |{{/if}}
+    <div class="content">{{#markdown}}{{content}}{{/markdown}}</div>
+    <div class="actions {{#unless elected}}active{{/unless}}">
+      {{#if canDelete}}<div class="remove clickable">delete</div>{{/if}}
+      <div>
         {{voteCount}}
         {{#if currentUser}}<span class="vote clickable">+1</span>{{/if}}
-        {{#if hasSibling}}| <span class="next clickable">&rarr;</span>{{/if}}
       </div>
-    {{/unless}}
+
+      <!-- TODO: Discussion option should go here and then be displayed in the
+                 right column (next to the story, fixed) -->
+    </div>
+    <div class="clear"></div>
   </div>
 </template>

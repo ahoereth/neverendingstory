@@ -1,5 +1,6 @@
 // Stories styles.
 // views/stories/*
+// TODO: Those styles right here want some clean up.
 
 @import 'imports/deps.import.less';
 
@@ -46,27 +47,79 @@
   }
 
   .paragraph {
-    width: 100%;
-    padding: 1em 0 0;
+    position: relative;
+    width: 96%;
+    padding: .5em 2%;
 
     p {
-      text-indent: 1em;
       margin: 0;
     }
 
-    .actions {
-      .noselect();
-      border-top: 1px solid #ccc;
-      text-align: right;
-      color: #ccc;
+    .content {
+      text-indent: 1em;
+      margin: 0 50px 0 0;
     }
 
-    .actions:hover {
-      color: #000;
+    .actions {
+      position: absolute;
+      top: .5em; right: 2%;
+      display: none;
+      width: 40px;
+
+      .noselect();
+      text-align: right;
+      color: #ccc;
+
+      div {
+        display: block;
+        width: 100%;
+      }
+
+      &:hover {
+        color: #000;
+      }
     }
 
     &:hover {
       background-color: rgba(0, 0, 0, .1);
+    }
+
+    &:hover .actions,
+    .actions.active {
+      display: block;
+    }
+  }
+
+  .paragraph_vote {
+    .columns(50%, 2, 2%, #fff, solid, 0);
+
+    .paragraph {
+      display: inline-block;
+      margin: 1em 1%;
+      width: 94%;
+      .drop-shadow(0, 2px, 4px, 0.5);
+    }
+
+    .content {
+      margin: 0;
+    }
+
+    .actions {
+      width: 100%;
+      border-top: 1px solid #ccc;
+      position: static;
+      margin-top: 1em;
+
+      div {
+        display: inline-block;
+        width: auto;
+        border-left: 1px solid #ccc;
+        padding: .25em 1em;
+      }
+
+      div:first-child {
+        border-left-width: 0;
+      }
     }
   }
 
