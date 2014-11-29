@@ -23,7 +23,7 @@
         <li>
           {{#if currentUser}}
           <!-- link to the user profile when it exists instead -->
-          <a href="{{pathFor 'profile'}}">
+          <a href="/profile/{{currentUser.username}}">
             <i class="fa fa-child"></i>
             You
           </a>
@@ -36,7 +36,6 @@
         </li>
       </ul>
     </div>
-
     <div class="menubar content-wrapper">
       <!-- Currently the bottom line of the menu above is displayed in place
       of this menubar. The menubar could instead be used to display the site
