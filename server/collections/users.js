@@ -75,8 +75,7 @@ Meteor.users.allow({
   update: function(userId, doc, fields, modifiers) {
     if ( isDebug() )
       return true;
-
-    return false;
+      return false;
   },
 
 });
