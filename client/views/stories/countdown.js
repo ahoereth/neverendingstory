@@ -3,14 +3,14 @@
 */
 
 var timeToText = function(t){
-  var t = Math.floor(t/1000);
+  t = Math.floor(t/1000);
   var days = Math.floor(t/(60*60*24));
   var hours = Math.floor((t - days*60*60*24)/(60*60));
   var mins = Math.floor((t - days*60*60*24 - hours*60*60)/60);
   var secs = t - days*60*60*24 - hours*60*60 - mins*60;
 
   return days + "d - " + hours + "h - " + mins + "m - " + secs + "s";
-}
+};
 
 Template.countdown.created = function() {
 
