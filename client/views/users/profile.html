@@ -54,21 +54,22 @@
 
 <tr>
 
+{{#unless currentUserIdIs seenprofile._id}}
+
+
+
+
     {{#if  isAlreadyfollowing seenprofile._id }}
     <td>  <input type="Button" class="followBtn" value="Unfollow"/></td>
     {{else}}
     <td>  <input type="Button" class="followBtn" value="Follow"/></td>
     {{/if}}
-
+{{/unless}}
 </tr>
 
 </table>
 
 <input type="hidden" id="seenprofileID" value="{{seenprofile._id}}"/>
-{{#each allusers}}
-<p>  <a class="view-profile" href="/profile/{{username}}">{{username}}</a> </p>
-{{/each}}
-
 </div>
 
 </div>

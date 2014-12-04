@@ -12,22 +12,16 @@ Template.story_head.helpers({
     return this.voteCount || '0';
   },
 
+
   votedBy:function(){
   var votesBy = Stories.findOne(this._id).votes;
-  console.log("VoterIDs");
-  console.log(votesBy);
-
   if(votesBy==undefined){
-    console.log("NOOO");
+  return false;
   }
   else{
-  //Meteor.call('stories/voterNames', this._id);
-  console.log("gett name here");
+  Meteor.subscribe('profiles');
   var voterid=votesBy[0];
-  console.log("voterid "+voterid);
-  var voter=  (Meteor.users.find({ _id : voterid}).fetch())[0];
-  console.log(voter);
-
+  return Meteor.users.find({_id:{ $in: votesBy }}, {username: 1}).fetch();
   }
 }
 

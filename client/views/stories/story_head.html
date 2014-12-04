@@ -1,7 +1,16 @@
 <template name="story_head">
   <div class="story-head">
     <h2 class="title">{{title}}</h2>
-    <span class="meta">Nezihe, Bilgé and 23 other people follow this story. <b>+1</b></span>
+
+  <span class="meta">
+
+    {{#each votedBy}}
+    <a class="view-profile" href="/profile/{{username}}">{{username}}</a>
+    {{/each}}
+    liked the story
+    <p>{{theVoteCount}} people liked this story.</p>
+  </span>
+
     <p class="preface">{{#markdown}}{{preface}}{{/markdown}}</p>
     <span class="votes">{{theVoteCount}}</span>
   </div>
