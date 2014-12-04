@@ -29,12 +29,11 @@ Template.countdown.created = function() {
 
   // We need to observe the nextElectionDate variable anyway in case it's unset
   var self = this;
-  Stories.find(this.data._id, {fields : {nextElectionDate : 1}}).observeChanges({
+  Stories.find(self.data._id, {fields: {nextElectionDate : 1}}).observeChanges({
     changed: function (id, fields){
-      if(!_.isUndefined(fields.nextElectionDate)){
-        self.timer_id = runCountdown(fields.nextElectionDate, self.timer);
-      }else{
+      if(! _.isUndefined(fields.nextElectionDate)) {
         clearInterval(self.timer_id);
+        self.timer_id = runCountdown(fields.nextElectionDate, self.timer);
       }
     }
   });
