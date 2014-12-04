@@ -9,7 +9,7 @@ Template.paragraph.helpers({
    * Checks if the paragraph is hidden.
    */
   isHidden: function() {
-    return !this.initial && !this.elected;
+    return ! this.initial && ! this.elected;
   },
 
 
@@ -34,11 +34,9 @@ Template.paragraph.events({
    * Up-/downvote the current paragraph.
    */
   'click .vote': function() {
-    if ( ! Meteor.userId() )
+    if (! Meteor.userId())
       return;
 
-    // This method automatically decides if the paragraph should be up
-    // or down voted.
     Meteor.call('components/vote', this._id);
   },
 
@@ -47,10 +45,9 @@ Template.paragraph.events({
    * Only visible as long as a component does not have any votes.
    */
   'click .remove': function(e, tmpl) {
-    if ( this.author != Meteor.userId() )
+    if (this.author != Meteor.userId())
       return;
 
-    showNext(tmpl);
     Meteor.call('components/remove', this._id);
   }
 
