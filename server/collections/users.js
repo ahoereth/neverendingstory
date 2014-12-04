@@ -15,10 +15,32 @@ Meteor.publish('activeUsers', function() {
       _id : 1,
       username: 1,
       'profile.avatar' : 1,
+      'profile.followerNum' : 1,
+      'profile.bio' : 1,
+      'profile.followed' : 1,
       'status.online' : 1
     }
   });
 });
+
+
+Meteor.publish('profiles', function() {
+  return Meteor.users.find({
+  }, {
+    fields: {
+      _id : 1,
+      username: 1,
+      'profile.avatar' : 1,
+      'profile.followerNum' : 1,
+      'profile.bio' : 1,
+      'profile.followed' : 1
+    }
+  });
+});
+
+
+
+
 
 
 /**

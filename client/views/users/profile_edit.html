@@ -1,0 +1,30 @@
+<template name="profile_edit">
+  <div class="view edit">
+    <br/>
+    <br/>
+    <h1 class="profileblock"> Edit Profile </h1>
+
+    <form>
+    <table>
+
+
+   <tr>
+   <td>  <b>Bio : </b></td>
+   <td>
+         {{#if currentUser.profile.bio}}
+     <textarea name="biocontent" class="bio">{{currentUser.profile.bio}}</textarea>
+           {{else}}
+     <textarea name="biocontent" class="bio" placeholder="Tell us something about you..."></textarea>
+         {{/if}}
+    </td>
+   </tr>
+
+
+
+   </table>
+
+
+      <button type="submit">Post</button>
+    </form>
+  </div>
+</template>
