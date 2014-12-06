@@ -23,9 +23,12 @@ Meteor.publish('activeUsers', function() {
   });
 });
 
-
-Meteor.publish('profiles', function() {
-  return Meteor.users.find({
+/*
+* Publishes the user with given username
+*/
+Meteor.publish('profile', function(username) {
+  check(username, String);
+  return Meteor.users.find({username:username
   }, {
     fields: {
       _id : 1,
@@ -39,6 +42,24 @@ Meteor.publish('profiles', function() {
 });
 
 
+
+/*
+* Publishes the specific list of users with given list of user id's
+*/
+Meteor.publish('profiles', function(userIds) {
+  check(userIds, Array);
+  return Meteor.users.find({_id:{ $in: userIds }
+  }, {
+    fields: {
+      _id : 1,
+      username: 1,
+      'profile.avatar' : 1,
+      'profile.followerNum' : 1,
+      'profile.bio' : 1,
+      'profile.followed' : 1
+    }
+  });
+});
 
 
 
@@ -57,7 +78,7 @@ Meteor.publish('profiles', function() {
 Accounts.onCreateUser(function(options, user) {
   // Ensure the user document has a profile object - even if it is empty.
   user.profile = options.profile || {};
-
+  user.profile.followerNum=0;
   return user;
 });
 

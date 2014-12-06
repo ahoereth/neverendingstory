@@ -35,6 +35,50 @@ Template.registerHelper('any', function(/* args... */) {
   return false;
 });
 
+/**
+ * Substruction
+ *
+ * @param  {Integer} args...
+ *
+ * @return {Integer}
+ */
+
+Template.registerHelper('minus', function(/* args... */) {
+  // Ignore the last argument because it contains a Spacebars specific object.
+  return arguments[0]-arguments[1];
+});
+
+
+
+/**
+ * Comparison
+ *
+ * @param  {Integer} args...
+ *
+ * @return {Boolean}
+ */
+
+Template.registerHelper('greater', function(/* args... */) {
+  // Ignore the last argument because it contains a Spacebars specific object.
+  return arguments[0]>arguments[1];
+});
+
+
+/**
+ * Comparison
+ *
+ * @param  {Integer} args...
+ *
+ * @return {Boolean}
+ */
+
+Template.registerHelper('equal', function(/* args... */) {
+  // Ignore the last argument because it contains a Spacebars specific object.
+  return arguments[0]==arguments[1];
+});
+
+
+
 
 /**
  * Checks if the current page is any of the pages provided as arguments.

@@ -56,11 +56,7 @@ Template.join_form.events({
       });
     }
   }
- //Router.go("profile"); // bunu dene nasıl olacak.
 });
-
-
-
 
 /****************************************************************************/
 /* Join RENDERED */

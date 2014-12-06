@@ -19,9 +19,8 @@ Template.story_head.helpers({
   return false;
   }
   else{
-  Meteor.subscribe('profiles');
-  var voterid=votesBy[0];
-  return Meteor.users.find({_id:{ $in: votesBy }}, {username: 1}).fetch();
+  Meteor.subscribe('profiles',votesBy);
+  return Meteor.users.find({_id:{ $in: votesBy }}, {limit: 2}).fetch();
   }
 }
 

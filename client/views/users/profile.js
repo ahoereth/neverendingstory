@@ -7,6 +7,10 @@
 /****************************************************************************/
 Template.profile.events({
 
+
+/*
+* Follow or Unfollow a user
+*/
 'click .followBtn': function(e,tmpl){
 // id of seen user
 var seenid=document.getElementById("seenprofileID").value;
@@ -52,7 +56,16 @@ var followed=(Meteor.users.findOne({_id:Meteor.user()._id}, {profile: 1})).profi
   }
 }
 
-}
+},
+
+
+  /**
+   * Logout.
+   */
+  'click .logout': function(e, tmpl) {
+    Meteor.logout();
+    Router.go('/');
+  }
 
 });
 
