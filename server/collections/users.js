@@ -79,6 +79,7 @@ Accounts.onCreateUser(function(options, user) {
   // Ensure the user document has a profile object - even if it is empty.
   user.profile = options.profile || {};
   user.profile.followerNum=0;
+  user.profile.avatar="pictures/avatar.png";
   return user;
 });
 

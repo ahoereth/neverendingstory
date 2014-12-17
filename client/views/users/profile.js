@@ -118,7 +118,28 @@ Template.profile.helpers({
     var followed=(Meteor.users.findOne({_id:seenprofileuserID}, {profile: 1})).profile.followed;
     if(followed==undefined) return 0;
     return followed.length;
-  }
+  },
+
+  activitiesNum:function(seenprofileuserID,actiontype){
+    var createdCompIDs=Activities.find({user_id:seenprofileuserID,action_type:actiontype,deleted:false},{fields: {target_id:1}}).fetch();
+    return createdCompIDs.length;
+  },
+
+activities:function(seenprofileuserID,actiontype){
+  var createdCompIDs=Activities.find({user_id:seenprofileuserID,action_type:actiontype,deleted:false},{fields: {target_id:1}}).fetch();
+
+ if(actiontype==1){  // create story
+   //activities="";
+ }
+ else if(actiontype==2){ // create component
+   //activities="";
+ }
+ else if(actiontype==4){ // vote component
+   //activities="";
+ }
+
+  return activities;
+}
 
 
 });

@@ -3,7 +3,7 @@
 
 <div class="profile-excerpt">
 
-<h1 class="profileblock"> Profile </h1>
+<h1 class="profileblock"> Profile  </h1>
 <br>
 
 {{#if currentUserIdIs seenprofile._id}}
@@ -13,15 +13,11 @@
 <button class="logout">Logout</button>
 </div>
 {{/if}}
-
 <br><br>
-
 <table>
-
-
   <tr>
   <td>
-   <img src="pictures/avatar.png" alt="Profile Pic" style="width:128px;height:128px">
+   <img src={{seenprofile.profile.avatar}} alt="Profile Pic" style="width:128px;height:128px">
   </td>
 </tr>
 
@@ -29,15 +25,12 @@
   <td><b>Username:   </b> </td>
   <td>{{seenprofile.username}}</td>
   </tr>
-
   {{#if seenprofile.profile.bio}}
   <tr>
     <td><b>Bio :</b></td>
     <td>{{seenprofile.profile.bio}}</td>
   </tr>
   {{/if}}
-
-
   <tr>
     <td><b>Num of follower :</b></td>
     {{#if followersExits seenprofile._id }}
@@ -46,21 +39,12 @@
     <td>0</td>
     {{/if}}
   </tr>
-
-
    <tr>
    <td><b>Num of following :</b></td>
    <td>{{followingNum seenprofile._id}}</td>
  </tr>
-
-
 <tr>
-
 {{#unless currentUserIdIs seenprofile._id}}
-
-
-
-
     {{#if  isAlreadyfollowing seenprofile._id }}
     <td>  <input type="Button" class="followBtn" value="Unfollow"/></td>
     {{else}}
@@ -68,11 +52,33 @@
     {{/if}}
 {{/unless}}
 </tr>
-
 </table>
-
 <input type="hidden" id="seenprofileID" value="{{seenprofile._id}}"/>
 </div>
 
+
+<h1 class="profileblock"> Activities  </h1>
+
+<div class="activities">
+<table>
+  <tr>
+  <td><b>Number of Paragraphs Created : </b></td>
+   <td>{{activitiesNum seenprofile._id 2}}</td>
+</tr>
+<tr>
+  <td><b>Number of Stories Created : </b></td>
+  <td>{{activitiesNum seenprofile._id 1}}</td>
+</tr>
+<tr>
+  <td><b>Number of Votes  : </b></td>
+  <td>{{activitiesNum seenprofile._id 4}}</td>
+</tr>
+</table>
+</div>
+
+
+
+
+<p></p>
 </div>
 </template>
