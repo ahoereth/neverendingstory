@@ -78,6 +78,18 @@ Template.registerHelper('equal', function(/* args... */) {
 });
 
 
+/**
+ * Checks if the String is empty or not
+ *
+ * @param  {Integer} args...
+ *
+ * @return {Boolean}
+ */
+
+Template.registerHelper('notEmpty', function(/* args... */) {
+  // Ignore the last argument because it contains a Spacebars specific object.
+  return arguments[0].length > 0;
+});
 
 
 /**
