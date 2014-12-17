@@ -1,0 +1,58 @@
+@import 'imports/deps.import.less';
+
+.sidebar {
+  z-index: 799;
+  line-height: 2em;
+  font-size: 1.5em;
+
+  font-weight: 300;
+  width: 2em;
+
+  .transition(all 100ms ease-out);
+}
+
+.app.top .sidebar {
+  padding-top: @header-height;
+}
+
+.menu {
+  overflow: hidden;
+  width: 100%;
+
+  ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    width: 100%;
+    height: 2em;
+    text-align: left;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+      padding-left: 2em;
+    }
+
+    i {
+      display: inline-block;
+      padding-left: -.1em;
+      width: 1.2em;
+      margin-left: -1.5em;
+      text-align: center;
+      .transition(all .2s ease-in-out);
+    }
+
+    i:hover {
+      .transform(scale(1.2));
+      text-shadow: 1px 1px 2px @primary3;
+    }
+  }
+
+
+}

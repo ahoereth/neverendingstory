@@ -3,20 +3,31 @@
 @import 'imports/deps.import.less';
 
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
+  font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
   color: @color;
   padding: 0; margin: 0;
 
-  overflow-y: scroll;
-  overflow-x: hidden;
   max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
 }
 
 .app {
   position: relative;
   left: 0;
   top: 0;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background-color: @primary;
 }
 
 .content {
@@ -31,11 +42,6 @@ body {
   // header - which is transitioned - the content element is rerendered
   // accordingly.
   .transition(top @header-animation-duration ease-out);
-}
-
-// See transition property above.
-.menu-active .content {
-  top: 1px;
 }
 
 .view {

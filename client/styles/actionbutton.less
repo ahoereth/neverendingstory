@@ -1,0 +1,35 @@
+@import 'imports/deps.import.less';
+
+.actionbutton {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  cursor: pointer;
+  z-index: 801;
+
+  background-color: @primary;
+  .rounded(1em);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  .drop-shadow(0, 2px, 4px, 0.5);
+
+  .transition(top @header-animation-duration ease-out);
+
+  .fa {
+    // Transition 'transform' does not work on mobile, therefore use 'all'.
+    .transition(all @header-animation-duration ease-out);
+
+    &:before {
+      content: "\f077"; // chevron up
+      //content: "\f078"; // chevron down
+    }
+  }
+}
+
+/*
+<div class="actionbutton">
+  <i class="fa"></i>
+</div>
+ */

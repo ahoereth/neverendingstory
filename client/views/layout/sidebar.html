@@ -1,5 +1,5 @@
-<template name="header">
-  <div class="header">
+<template name="sidebar">
+  <div class="sidebar">
     <div class="menu">
       <ul>
         <li class="{{activePage 'landing'}}">
@@ -15,14 +15,13 @@
           </a>
         </li>
         <li>
-          <span>
+          <a href="{{pathFor 'chat'}}">
             <i class="fa fa-users"></i>
-            Community
-          </span>
+            Chat
+          </a>
         </li>
         <li>
           {{#if currentUser}}
-          <!-- link to the user profile when it exists instead -->
           <a href="/profile/{{currentUser.username}}">
             <i class="fa fa-child"></i>
             You
@@ -36,16 +35,5 @@
         </li>
       </ul>
     </div>
-    <div class="menubar content-wrapper">
-      <!-- Currently the bottom line of the menu above is displayed in place
-      of this menubar. The menubar could instead be used to display the site
-      logo & current screen. In that case: Change initial height of the menu
-      to 0 and fill the menu bar with one-line content. -->
-      <div class="clear"></div>
-    </div>
-  </div>
-
-  <div class="menu-trigger">
-    <i class="fa"></i>
   </div>
 </template>

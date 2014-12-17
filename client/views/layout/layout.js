@@ -94,4 +94,18 @@ Template.layout.rendered = function(tmpl) {
       }, cssTransitionDuration);
     }
   };
+
+  var yOffset, onTop = false;
+  $(document).on('scroll', function(e) {
+    yOffset = $(window).scrollTop();
+
+    // using "onTop" as cache to not go into the DOM on every scroll update
+    if (! onTop && yOffset < 50) {
+      onTop = true;
+      $('.app').addClass('top');
+    } else if (onTop && yOffset >= 50) {
+      onTop = false;
+      $('.app').removeClass('top');
+    }
+  });
 };

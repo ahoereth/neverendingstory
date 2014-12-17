@@ -71,7 +71,8 @@ body {
 }
 
 .content-wrapper {
-  width: 100%;
+  width: 90%;
+  margin-left: 10%;
 }
 
 //******************************************************************************
@@ -81,8 +82,18 @@ body {
     font-size: 62.5% * 1.75; // ~ 17.5px
   }
 
+  .app.top .sidebar,
+  .sidebar.active {
+    width: 150px;
+  }
+
+  .app.top .content-wrapper {
+    left: 75px;
+  }
+
+
   .content-wrapper {
-    width: 740px;
+    width: 590px;
   }
 
   // They all just inherit from the initial setting (which already was in %).
@@ -116,8 +127,18 @@ body {
     font-size: 62.5% * 2; // ~ 20px
   }
 
+  .app.top .sidebar,
+  .sidebar.active {
+    width: 200px;
+  }
+
+  .app.top .content-wrapper {
+    left: 100px;
+  }
+
+
   .content-wrapper {
-    width: 1000px;
+    width: 800px;
   }
 
   // See comment in the medium size media query above.
@@ -143,12 +164,12 @@ body {
 }
 
 // Unsure about this one. Also applies on laptops currently.
-@media screen AND (min-width: 1160px) {
+@media screen AND (min-width: 1200px) {
   body {
     font-size: 62.5% * 2; // ~ 20px
   }
 
   .content-wrapper {
-    width: 1120px;
+    width: 980px;
   }
 }
