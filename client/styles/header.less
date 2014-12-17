@@ -10,17 +10,28 @@
   line-height: @header-height;
   .drop-shadow(0, 2px, 4px, 0.5);
   background-color: @primary;
+  .transition(height @header-animation-duration ease-out);
+}
+
+.tmpl-landing .header {
+  height: @header-height * 2;
 }
 
 .header .logo {
   display: inline-block;
-  width: 200px;
   text-align: center;
   float: left;
+  height: 100%;
+  width: 2em;
+  font-size: 1.5em;
 }
 
 .header h1,
 .header h2 {
   margin: 0;
   padding: 0;
+}
+
+.header p {
+  margin: 0;
 }

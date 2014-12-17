@@ -30,8 +30,8 @@ Template.story_new.events({
     Meteor.call('stories/new', {
       title   : fields.title,
       genre   : fields.genre,
-      genre2  : fields.genre2,
-      nsfw    : fields.NSFW,
+      genre2  : '', //fields.genre2,
+      nsfw    : '', //fields.NSFW,
       insp    : fields.inspirations,
       who     : fields.who,
       when    : fields.when,
@@ -51,6 +51,12 @@ Template.story_new.events({
     form[0].reset();
   }
 
+});
+
+Template.story_new.helpers({
+  genres: function() {
+    return Stories.GENRES;
+  }
 });
 
 

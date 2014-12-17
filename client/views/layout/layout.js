@@ -95,15 +95,17 @@ Template.layout.rendered = function(tmpl) {
     }
   };
 
-  var yOffset, onTop = false;
+  $('.app').addClass('top');
+  var yOffset, onTop = true, $header = $('.header');
   $(document).on('scroll', function(e) {
+    var offset = $header.height() * 0.75;
     yOffset = $(window).scrollTop();
 
     // using "onTop" as cache to not go into the DOM on every scroll update
-    if (! onTop && yOffset < 50) {
+    if (! onTop && yOffset < offset) {
       onTop = true;
       $('.app').addClass('top');
-    } else if (onTop && yOffset >= 50) {
+    } else if (onTop && yOffset >= offset) {
       onTop = false;
       $('.app').removeClass('top');
     }

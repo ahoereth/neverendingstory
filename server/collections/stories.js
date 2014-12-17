@@ -3,7 +3,7 @@
 /******************************************************************************/
 /* Stories PUBLISHING */
 /******************************************************************************/
-Meteor.publish('stories', function (id) {
+Meteor.publish('stories', function(id) {
   check(id, Match.Optional(MeteorID));
 
   if ( ! _.isUndefined(id) ) {
@@ -15,6 +15,18 @@ Meteor.publish('stories', function (id) {
       sort: {voteCount: -1}
     });
   }
+});
+
+Meteor.publish('featuredStories', function() {
+  return Stories.find({
+    deleted: {$ne: true}
+  }, {
+    limit: 5,
+    sort: {
+      activity: -1,
+      voteCount: -1
+    }
+  });
 });
 
 

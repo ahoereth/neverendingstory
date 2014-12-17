@@ -16,8 +16,16 @@
      {{/unless}}
   {{/if}}
 </span>
-    <p class="metainfos">{{genre}}<br>{{genre2}}<br>{{nsfw}}<br>{{insp}}</p>
-    <p class="whinfos">{{who}}<br>{{when}}<br>{{where}}<br>{{what}}</p>
+    <p class="metainfos">
+      {{#if notEmpty genre}}<span class="genre">{{genre}}</span> - {{/if}}
+      {{#if notEmpty insp}}<span class="insp">Inspired by {{insp}}</span>{{/if}}
+    </p>
+    <p class="whinfos">
+      {{#if notEmpty who}}It's {{who}}.{{/if}}
+      {{#if notEmpty when}}Around {{when}}.{{/if}}
+      {{#if notEmpty where}}In {{where}}.{{/if}}
+      {{#if notEmpty what}}{{what}}{{/if}}
+    </p>
     <p class="preface">{{#markdown}}{{preface}}{{/markdown}}</p>
     <span class="votes">{{theVoteCount}}</span>
   </div>

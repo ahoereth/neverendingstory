@@ -1,6 +1,11 @@
 <template name="header">
   <div class="header">
     <span class="logo">§§</span>
-    <h2>The Neverending Story</h2>
+    {{#if activePage 'landing'}}
+      <h1>The Neverending Story</h1>
+      <p class="lead">Democratic crowd-sourced social story telling.</p>
+    {{else}}
+      <h2>The Neverending Story</h2>
+    {{/if}}
   </div>
 </template>

@@ -2,11 +2,11 @@
 
 
 Template.sidebar.events({
-  'mouseover .sidebar': function(e, tmpl) {
+  'mouseenter .sidebar': function(e, tmpl) {
     tmpl.$(e.target).addClass('active');
   },
 
-  'mouseout .sidebar': function(e, tmpl) {
+  'mouseleave .sidebar': function(e, tmpl) {
     tmpl.$(e.target).removeClass('active');
   }
 });
