@@ -29,6 +29,14 @@ Template.story_new.events({
     // might have changed the _id) and redirect the client if appropriate.
     Meteor.call('stories/new', {
       title   : fields.title,
+      genre   : fields.genre,
+      genre2  : fields.genre2,
+      nsfw    : fields.NSFW,
+      insp    : fields.inspirations,
+      who     : fields.who,
+      when    : fields.when,
+      where   : fields.where,
+      what    : fields.what,
       preface : fields.preface,
       redirect: true
     }, function(err, _id) {
