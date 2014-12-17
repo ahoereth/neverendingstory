@@ -1,6 +1,6 @@
-Meteor.publish('activities', function () {
-    return Activities.find();
-
+Meteor.publish('activities', function (user_id) {
+  check(user_id, Match.Optional(MeteorID));
+    return Activities.find({user_id:user_id});
     });
 
 

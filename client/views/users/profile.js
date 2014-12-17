@@ -121,11 +121,13 @@ Template.profile.helpers({
   },
 
   activitiesNum:function(seenprofileuserID,actiontype){
+
     var createdCompIDs=Activities.find({user_id:seenprofileuserID,action_type:actiontype,deleted:false},{fields: {target_id:1}}).fetch();
     return createdCompIDs.length;
   },
 
 activities:function(seenprofileuserID,actiontype){
+
   var createdCompIDs=Activities.find({user_id:seenprofileuserID,action_type:actiontype,deleted:false},{fields: {target_id:1}}).fetch();
 
  if(actiontype==1){  // create story
