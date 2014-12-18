@@ -13,11 +13,28 @@
     padding: .5em 0 0 0;
     margin: 0;
     border-bottom: 1px solid @accent;
+
+    a {
+      color: inherit;
+      text-decoration: inherit;
+      &:hover {
+        text-shadow: 0px 0px #000;
+      }
+    }
   }
 
   .meta {
     font-size: .8em;
     font-style: italic;
+
+    .vote {
+      font-style: normal;
+      cursor: pointer;
+
+      &:hover {
+        font-style: italic;
+      }
+    }
   }
 
   .metainfos{
@@ -31,26 +48,6 @@
 
   .insp{
     font-style: italic;
-  }
-
-  // The settings below work well for up to 3 digit numbers.
-  @votes-font-size: 1em;
-  .votes {
-    position: absolute;
-    text-align: center;
-    cursor: pointer;
-    .noselect();
-
-    top: 1/@votes-font-size;
-    right: 1/@votes-font-size;
-    width: @votes-font-size*2;
-    height: @votes-font-size*2;
-    line-height: @votes-font-size*2;
-    font-size: @votes-font-size;
-    .rounded(@votes-font-size*2);
-
-    border: 1px solid @primary;
-    background-color: @primary2;
   }
 
   .preface {

@@ -4,27 +4,41 @@
 /* Story Head HELPERS */
 /****************************************************************************/
 Template.story_head.helpers({
-
   /**
-   * Shows the stories vote count or 0.
+   * Shows some random people who liked this story with links to their profile.
+   *
+   * TODO: Should probably focus on people the current user follows and not
+   * take the current user into account.
    */
-  theVoteCount: function() {
-    return this.voteCount || '0';
+  voters: function() {
+    var profilelink = function(username) {
+      return '<a class="view-profile" href="/profile/'+username+'">'+username+'</a>';
+    };
+
+    return _(this.votes).sample(5).reduce(function(memo, vote) {
+      if (vote._id == Meteor.userId())
+        return ! memo ? 'You, ' : 'you, ';
+
+      return memo + profilelink(vote.username) + ', ';
+    }, '').slice(0, -2);
   },
 
 
-  votedBy:function(){
-  var votesBy = Stories.findOne(this._id).votes;
-  if(votesBy==undefined){
-  return false;
-  }
-  else{
-  Meteor.subscribe('profiles',votesBy);
-  return Meteor.users.find({_id:{ $in: votesBy }}, {limit: 2}).fetch();
-  }
-}
+  /**
+   * Did the current user vote for this story?
+   */
+  iLiked: function() {
+    return !! _.findWhere(this.votes, {_id: Meteor.userId()});
+  },
 
 
+  /**
+   * Checks if we are currently just viewing this single story.
+   */
+  isSingle: function() {
+    var current = Router.current();
+    return current.route.getName() == 'story' && current.params._id == this._id;
+  }
 });
 
 
@@ -48,7 +62,7 @@ Template.story_head.events({
   /**
    * Removes or adds the current user's vote from the story's votes
    */
-  'click .votes': function() {
+  'click .vote': function() {
     if ( ! Meteor.userId() )
       return;
 
