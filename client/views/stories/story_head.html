@@ -8,7 +8,11 @@
 
     <span class="meta">
       {{#if voteCount}}
-        {{{voters}}}
+        {{#each voters}}
+          {{{anchor}}}{{#if prelast}} and {{else}}{{#unless last}}, {{/unless}}{{/if}}
+        {{/each}}
+
+        {{! voters}}
         {{#if greater voteCount 5}}
            and {{minus voteCount 5}} more people
         {{/if}}

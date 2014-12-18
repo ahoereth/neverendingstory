@@ -15,12 +15,17 @@ Template.story_head.helpers({
       return '<a class="view-profile" href="/profile/'+username+'">'+username+'</a>';
     };
 
-    return _(this.votes).sample(5).reduce(function(memo, vote) {
-      if (vote._id == Meteor.userId())
-        return ! memo ? 'You, ' : 'you, ';
+    var sample = _.sample(this.votes, 5), self, first;
+    return _.map(sample, function(vote, idx) {
+      self = vote._id == Meteor.userId();
+      first = idx === 0;
 
-      return memo + profilelink(vote.username) + ', ';
-    }, '').slice(0, -2);
+      return _.extend(vote, {
+        anchor: profilelink(self ? (first ? 'You' : 'you') : vote.username),
+        prelast: (idx === sample.length-2),
+        last: (idx === sample.length-1)
+      });
+    });
   },
 
 

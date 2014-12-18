@@ -10,7 +10,8 @@ Meteor.publish('stories', function(id) {
     return Stories.find(id);
   } else {
     return Stories.find({
-      deleted: {$ne: true}
+      deleted: {$ne: true},
+      createdAt: {$exists: true}
     }, {
       sort: {voteCount: -1}
     });
@@ -19,7 +20,8 @@ Meteor.publish('stories', function(id) {
 
 Meteor.publish('featuredStories', function() {
   return Stories.find({
-    deleted: {$ne: true}
+    deleted: {$ne: true},
+    createdAt: {$exists: true}
   }, {
     limit: 5,
     sort: {
