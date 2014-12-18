@@ -163,3 +163,23 @@
 .story .title {
   padding-top: 1em;
 }
+
+.stories .meta .genre {
+  cursor: pointer;
+
+  border-right: 1px solid @primary;
+  padding: 0 5px;
+}
+
+.stories .meta .genre:first-child {
+  padding-left: 0;
+}
+.stories .meta .genre:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.stories .meta .genre:hover,
+.stories .meta .genre.active {
+  font-weight: bold;
+}

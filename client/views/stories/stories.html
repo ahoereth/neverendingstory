@@ -1,7 +1,16 @@
 <template name="stories">
   <div class="view stories">
     <h1 class="blocktitle">Stories overview</h1>
-    <p>Filter/sort by: Genre | Tags | Length | Contributors</p>
+    <div class="meta">
+      {{#if genres}}
+        <p>
+          {{#each genres}}
+            <span class="genre {{#if equal genre this}}active{{/if}}">{{this}}</span>
+          {{/each}}
+        </p>
+      {{/if}}
+    </div>
+
     {{#each stories}}
       {{> story_excerpt}}
     {{/each}}
